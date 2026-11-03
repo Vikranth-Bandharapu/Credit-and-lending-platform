@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit & Lending Operations Center — Credora Finance</title>
+  <meta name="description" content="Administrative command center for loan portfolio monitoring, algorithmic credit assessment, underwriting approvals, and collections telemetry.">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/dashboard.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- =========================================================================
+         ADMIN SIDEBAR
+         ========================================================================= -->
+    <aside class="dashboard-sidebar" id="adminSidebar">
+      <div class="sidebar-brand">
+        <a href="admin-dashboard.html" class="brand-logo" aria-label="Admin Dashboard">
+          <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+        </a>
+      </div>
+
+      <div class="sidebar-user-card">
+        <div class="sidebar-user-info">
+          <h5 class="text-white user-display-name">Eleanor Vance</h5>
+          <span class="user-display-email text-xs text-emerald" style="display:block; word-break:break-all;">admin@credora.com</span>
+          <span class="text-xs text-slate-400">Chief Risk Underwriter</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin Navigation">
+        <span class="nav-section-title">Operations Center</span>
+
+        <a href="#sec-overview" class="sidebar-link active" data-target-view="sec-overview">
+          <i class="fas fa-chart-pie"></i>
+          <span>Dashboard Overview</span>
+        </a>
+
+        <a href="#sec-applications" class="sidebar-link" data-target-view="sec-applications">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Loan Applications</span>
+          <span class="sidebar-badge">47</span>
+        </a>
+
+        <a href="#sec-underwriting" class="sidebar-link" data-target-view="sec-underwriting">
+          <i class="fas fa-shield-halved"></i>
+          <span>Credit Assessment</span>
+        </a>
+
+        <a href="#sec-repayments" class="sidebar-link" data-target-view="sec-repayments">
+          <i class="fas fa-money-bill-transfer"></i>
+          <span>Repayments & EMI</span>
+        </a>
+
+        <a href="#sec-settings" class="sidebar-link" data-target-view="sec-settings">
+          <i class="fas fa-users-gear"></i>
+          <span>Borrowers & Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-link btn-logout" style="color:var(--color-danger);">
+          <i class="fas fa-power-off"></i> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+         DASHBOARD MAIN CONTAINER
+         ========================================================================= -->
+    <div class="dashboard-main">
+
+      <!-- Topbar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <div class="sidebar-toggle-btn" role="button" aria-label="Toggle Navigation Sidebar">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="topbar-title-block">
+            <h4 class="topbar-title text-white mb-0">Operations Center</h4>
+            <span class="topbar-subtitle text-xs text-emerald"><i class="fas fa-circle-dot"></i> Live Telemetry</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search application ref, borrower name..." aria-label="Search dashboard">
+          </div>
+
+          <div class="topbar-icon-btn" onclick="showToast('3 new underwriting notifications queued.', 'info');" title="Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-indicator"></span>
+          </div>
+
+          <a href="index.html" class="btn btn-secondary btn-sm topbar-home-btn" title="Return to Public Website">
+            <i class="fas fa-house"></i> <span class="btn-text-full">Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard View Sections -->
+      <div class="dashboard-content">
+
+        <!-- =====================================================================
+             VIEW 1: EXECUTIVE DASHBOARD OVERVIEW & FINANCIAL KPIS
+             ===================================================================== -->
+        <section class="dashboard-section active" id="sec-overview">
+          <!-- SECTION 1: Welcome Header -->
+          <div class="welcome-header-card mb-4 pb-2">
+            <div class="welcome-header-info">
+              <h2 class="welcome-title text-white mb-1">Portfolio Operations Command</h2>
+              <p class="welcome-subtitle text-xs text-slate-400 mb-0">Signed in as <strong class="welcome-user-email text-emerald">admin@credora.com</strong> &bull; Real-time underwriting telemetry active.</p>
+            </div>
+            <!-- SECTION 20: Quick Actions -->
+            <div class="welcome-header-actions">
+              <a href="404.html" class="btn btn-sm btn-primary">
+                <i class="fas fa-rotate"></i> Trigger Audit Run
+              </a>
+              <a href="404.html" class="btn btn-sm btn-secondary">
+                <i class="fas fa-file-export"></i> Export Report
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 2: Financial KPI Overview Cards (SECTIONS 3, 4, 5, 6) -->
+          <div class="kpi-grid">
+            <!-- SECTION 3: Total Applications -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Total Applications</span>
+                <div class="kpi-icon-wrap"><i class="fas fa-folder-open"></i></div>
+              </div>
+              <div class="kpi-value">3,842</div>
+              <div class="kpi-meta positive"><i class="fas fa-arrow-trend-up"></i> +14.2% this quarter</div>
+            </div>
+
+            <!-- SECTION 4: Pending Applications -->
+            <div class="kpi-card" style="border-color: rgba(245,158,11,0.3);">
+              <div class="kpi-header">
+                <span class="kpi-title">Pending Underwriting</span>
+                <div class="kpi-icon-wrap" style="color:var(--color-warning); background:var(--color-warning-bg);"><i class="fas fa-hourglass-half"></i></div>
+              </div>
+              <div class="kpi-value text-warning">47</div>
+              <div class="kpi-meta"><i class="fas fa-clock"></i> Avg turnaround: 4.2 min</div>
+            </div>
+
+            <!-- SECTION 5: Approved Applications -->
+            <div class="kpi-card" style="border-color: rgba(16,185,129,0.3);">
+              <div class="kpi-header">
+                <span class="kpi-title">Approved Facilities</span>
+                <div class="kpi-icon-wrap"><i class="fas fa-stamp"></i></div>
+              </div>
+              <div class="kpi-value text-emerald">3,120</div>
+              <div class="kpi-meta positive"><i class="fas fa-check-double"></i> 81.2% approval rate</div>
+            </div>
+
+            <!-- SECTION 6: Rejected Applications -->
+            <div class="kpi-card" style="border-color: rgba(239,68,68,0.3);">
+              <div class="kpi-header">
+                <span class="kpi-title">Declined Applications</span>
+                <div class="kpi-icon-wrap" style="color:var(--color-danger); background:var(--color-danger-bg);"><i class="fas fa-ban"></i></div>
+              </div>
+              <div class="kpi-value text-danger">675</div>
+              <div class="kpi-meta negative"><i class="fas fa-shield"></i> Exceeded DTI ceiling</div>
+            </div>
+          </div>
+          <!-- SECTION 7 & 8: Portfolio Charts Row -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 7: Loan Portfolio Overview -->
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-chart-area text-emerald mr-2"></i> Monthly Disbursements vs Collections ($M)</h4>
+                <span class="badge badge-info">10-Month Trend</span>
+              </div>
+              <div style="height:240px;">
+                <canvas id="portfolioTrendsChart"></canvas>
+              </div>
+            </div>
+
+            <!-- SECTION 8: Disbursement Analytics -->
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-chart-pie text-emerald mr-2"></i> Portfolio Product Distribution</h4>
+                <span class="badge badge-success">Balanced Yield</span>
+              </div>
+              <div style="height:240px;">
+                <canvas id="disbursementProductChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <!-- SECTION 21: System Status & Compliance Monitoring -->
+          <div class="card card-glass p-3 text-center" style="border-top:1px solid rgba(16,185,129,0.3);">
+            <div class="d-flex justify-between align-center text-xs text-slate-400" style="flex-wrap:wrap; gap:1rem;">
+              <span><i class="fas fa-server text-emerald"></i> Core Banking Engine: v4.2.0-sim</span>
+              <span><i class="fas fa-network-wired text-info"></i> API Gateway Latency: 18ms</span>
+              <span><i class="fas fa-lock text-emerald"></i> AES-256 Simulation Active</span>
+              <span class="badge badge-success">System 100% Operational</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 2: LOAN APPLICATIONS PIPELINE & UNDERWRITING QUEUE
+             ===================================================================== -->
+        <section class="dashboard-section" id="sec-applications">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">Loan Applications Queue</h2>
+              <p class="text-xs text-slate-400">Live underwriting pipeline — 47 applications awaiting decisioning.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-download"></i> Export Pipeline
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 11: Application Review Queue (Interactive Underwriting Demo) -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="d-flex justify-between align-center mb-3" style="flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 class="text-white"><i class="fas fa-table-list text-emerald mr-2"></i> Application Review Queue</h3>
+                <p class="text-xs text-slate-400">Click "Inspect & Decide" to simulate approving or rejecting an application.</p>
+              </div>
+
+              <!-- Search & Filter Controls -->
+              <div class="d-flex gap-2" style="flex-wrap:wrap; max-width:100%;">
+                <input type="text" id="appSearchInput" class="form-control" placeholder="Search applicant..." style="padding:0.4rem 0.8rem; font-size:0.85rem; min-width:140px; flex:1;">
+                <select id="appStatusFilter" class="form-control" style="background:#0B132B; padding:0.4rem 0.8rem; font-size:0.85rem; min-width:130px; flex:1;">
+                  <option value="all">All Statuses</option>
+                  <option value="under review">Under Review</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Applicant</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Tenure</th>
+                    <th>DTI Ratio</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="applicationsTableBody">
+                  <tr data-status="under review" data-app-id="CRD-APP-90124" data-applicant="Sarah Jenkins" data-amount="$35,000" data-category="Personal Growth Loan">
+                    <td class="font-bold text-white">#CRD-APP-90124</td>
+                    <td>Sarah Jenkins</td>
+                    <td>Personal Growth</td>
+                    <td>$35,000</td>
+                    <td>36 Mos</td>
+                    <td><span class="badge badge-success">28% (Healthy)</span></td>
+                    <td><span class="badge badge-warning">Under Review</span></td>
+                    <td>
+                      <a href="404.html" class="btn btn-sm btn-outline-emerald">
+                        Inspect & Decide
+                      </a>
+                    </td>
+                  </tr>
+                  <tr data-status="under review" data-app-id="CRD-APP-90125" data-applicant="Vanguard Logistics" data-amount="$150,000" data-category="Commercial SME Credit">
+                    <td class="font-bold text-white">#CRD-APP-90125</td>
+                    <td>Vanguard Logistics</td>
+                    <td>Commercial SME</td>
+                    <td>$150,000</td>
+                    <td>48 Mos</td>
+                    <td><span class="badge badge-info">34% (Standard)</span></td>
+                    <td><span class="badge badge-warning">Under Review</span></td>
+                    <td>
+                      <a href="404.html" class="btn btn-sm btn-outline-emerald">
+                        Inspect & Decide
+                      </a>
+                    </td>
+                  </tr>
+                  <tr data-status="approved" data-app-id="CRD-APP-89410" data-applicant="Michael Rivera" data-amount="$18,000" data-category="Higher Education Loan">
+                    <td class="font-bold text-white">#CRD-APP-89410</td>
+                    <td>Michael Rivera</td>
+                    <td>Higher Education</td>
+                    <td>$18,000</td>
+                    <td>24 Mos</td>
+                    <td><span class="badge badge-success">19% (Low Risk)</span></td>
+                    <td><span class="badge badge-success">Approved</span></td>
+                    <td>
+                      <a href="404.html" class="btn btn-sm btn-secondary">Review File</a>
+                    </td>
+                  </tr>
+                  <tr data-status="rejected" data-app-id="CRD-APP-89408" data-applicant="Delta Express Inc" data-amount="$85,000" data-category="Commercial SME Credit">
+                    <td class="font-bold text-white">#CRD-APP-89408</td>
+                    <td>Delta Express Inc</td>
+                    <td>Commercial SME</td>
+                    <td>$85,000</td>
+                    <td>12 Mos</td>
+                    <td><span class="badge badge-danger">54% (Ceiling Exceeded)</span></td>
+                    <td><span class="badge badge-danger">Rejected</span></td>
+                    <td>
+                      <a href="404.html" class="btn btn-sm btn-secondary">Review File</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 3: CREDIT ASSESSMENT & RISK MODELING
+             ===================================================================== -->
+        <section class="dashboard-section" id="sec-underwriting">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">Credit Assessment & Underwriting</h2>
+              <p class="text-xs text-slate-400">Automated risk modeling, debt-to-income benchmarks, and decision engine.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-secondary btn-sm">
+                <i class="fas fa-rotate"></i> Recalculate Thresholds
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 13: Credit Assessment Interface -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="section-badge mb-2">Algorithmic Risk Engine</div>
+            <h3 class="text-white mb-2">Underwriting Risk Scorecard Model</h3>
+            <p class="text-xs text-slate-400 mb-3">Demonstrates continuous deterministic scoring weights used across automated underwriting.</p>
+            <div class="grid-3">
+              <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:var(--radius-md);">
+                <span class="text-xs text-slate-400 d-block">Cash Flow Volatility</span>
+                <strong class="text-emerald text-lg">Score: 88/100</strong>
+                <p class="text-xs text-slate-500 mt-1">Variance across 12-month deposit records within acceptable tolerance (&lt; 15%).</p>
+              </div>
+              <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:var(--radius-md);">
+                <span class="text-xs text-slate-400 d-block">Debt Service Coverage (DSCR)</span>
+                <strong class="text-info text-lg">1.45x</strong>
+                <p class="text-xs text-slate-500 mt-1">Net operating surplus comfortably clears simulated monthly debt payments.</p>
+              </div>
+              <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:var(--radius-md);">
+                <span class="text-xs text-slate-400 d-block">Historical Adherence Index</span>
+                <strong class="text-emerald text-lg">99.2%</strong>
+                <p class="text-xs text-slate-500 mt-1">Prior loan obligations cleared without 30-day delinquency marks.</p>
+              </div>
+            </div>
+          </div>
+          <!-- SECTION 16: Risk Monitoring Overview -->
+          <div class="card card-glass p-4 mb-4">
+            <h4 class="text-white mb-2"><i class="fas fa-shield-virus text-emerald mr-2"></i> Macro Risk & Stress Testing Index</h4>
+            <div class="grid-3 text-xs text-slate-300">
+              <div class="p-3" style="background:rgba(11,19,43,0.5); border-radius:8px;">
+                <span class="text-slate-500 d-block">Sector Concentration</span>
+                <strong class="text-white">Max 32% (Retail SME)</strong>
+                <span class="d-block text-emerald mt-1">Within policy limit (&lt; 35%)</span>
+              </div>
+              <div class="p-3" style="background:rgba(11,19,43,0.5); border-radius:8px;">
+                <span class="text-slate-500 d-block">Simulated 200bps Rate Shock</span>
+                <strong class="text-white">Capital Adequacy 18.2%</strong>
+                <span class="d-block text-emerald mt-1">Resilient buffer intact</span>
+              </div>
+              <div class="p-3" style="background:rgba(11,19,43,0.5); border-radius:8px;">
+                <span class="text-slate-500 d-block">Loss Provision Ratio</span>
+                <strong class="text-white">2.8% of Total Volume</strong>
+                <span class="d-block text-info mt-1">Fully reserved ($695K)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 4: REPAYMENTS, EMI & COLLECTIONS
+             ===================================================================== -->
+        <section class="dashboard-section" id="sec-repayments">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">Repayments & EMI Management</h2>
+              <p class="text-xs text-slate-400">Collection metrics, overdue payment recovery, and transaction ledger.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-outline-emerald btn-sm">
+                <i class="fas fa-play"></i> Run Auto-Debit Batch
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 9 & 10: Repayment & EMI Overview -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 9: Repayment Analytics -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-receipt text-emerald mr-2"></i> Repayment Performance Status</h4>
+              <div class="grid-2 my-2">
+                <div class="p-2" style="background:rgba(16,185,129,0.1); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">On-Time Clearance</span>
+                  <strong class="text-emerald text-lg">94.8%</strong>
+                </div>
+                <div class="p-2" style="background:rgba(59,130,246,0.1); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">Early Payoffs</span>
+                  <strong class="text-info text-lg">4.6%</strong>
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 mb-0">Total capital recycled this month: $1,840,250 without loss events.</p>
+            </div>
+
+            <!-- SECTION 10: EMI Collection Overview -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-money-check-dollar text-emerald mr-2"></i> Weekly EMI Collection Target</h4>
+              <div class="d-flex justify-between text-xs text-slate-300 mb-1">
+                <span>Week 44 Target: $450,000</span>
+                <span class="text-emerald font-bold">Collected: $438,200 (97.3%)</span>
+              </div>
+              <div style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px; margin-bottom:1rem;">
+                <div style="width:97.3%; height:100%; background:var(--color-primary); border-radius:4px;"></div>
+              </div>
+              <div class="d-flex justify-between text-xs text-slate-400">
+                <span>ACH Auto-Debit: 88%</span>
+                <span>Debit Card: 10%</span>
+                <span>Wire: 2%</span>
+              </div>
+            </div>
+          </div>
+          <!-- SECTION 14 & 15: Loan Status Monitoring & Overdue Payment Tracking -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 14: Loan Status Monitoring -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-heart-pulse text-emerald mr-2"></i> Loan Status Health Monitor</h4>
+              <ul class="d-flex" style="flex-direction:column; gap:0.6rem;">
+                <li class="d-flex justify-between text-xs py-1" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <span class="text-white">Active Performing Facilities</span>
+                  <strong class="text-emerald">1,398 (98.4%)</strong>
+                </li>
+                <li class="d-flex justify-between text-xs py-1" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <span class="text-white">Grace Period Restructuring</span>
+                  <strong class="text-warning">14 (1.0%)</strong>
+                </li>
+                <li class="d-flex justify-between text-xs py-1">
+                  <span class="text-white">Flagged for Follow-up</span>
+                  <strong class="text-danger">8 (0.6%)</strong>
+                </li>
+              </ul>
+            </div>
+
+            <!-- SECTION 15: Overdue Payment Tracking -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-clock-rotate-left text-danger mr-2"></i> Delinquency Aging Buckets</h4>
+              <div class="grid-3 text-center my-2">
+                <div class="p-2" style="background:rgba(245,158,11,0.1); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">1–30 Days</span>
+                  <strong class="text-warning">$18,400</strong>
+                </div>
+                <div class="p-2" style="background:rgba(239,68,68,0.1); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">31–60 Days</span>
+                  <strong class="text-danger">$6,200</strong>
+                </div>
+                <div class="p-2" style="background:rgba(239,68,68,0.2); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">60+ Days</span>
+                  <strong class="text-danger">$0 (Zero PAR)</strong>
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 mb-0">Automated SMS/Email payment reminders dispatch automatically at day 3 past due.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 5: BORROWER DIRECTORY, REPORTS & SETTINGS
+             ===================================================================== -->
+        <section class="dashboard-section" id="sec-settings">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">Borrower Directory & System Settings</h2>
+              <p class="text-xs text-slate-400">Customer directory, communications desk, compliance audit, and reports.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-file-shield"></i> Security Audit
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 12: Borrower Directory -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="d-flex justify-between align-center mb-3" style="flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 class="text-white"><i class="fas fa-address-book text-emerald mr-2"></i> Borrower Directory</h3>
+                <p class="text-xs text-slate-400">Search active customer accounts and risk grading.</p>
+              </div>
+              <input type="text" id="borrowerSearchInput" class="form-control" placeholder="Filter by borrower name..." style="max-width:240px; min-width:160px; padding:0.4rem 0.8rem; font-size:0.85rem; flex:1;">
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Borrower ID</th>
+                    <th>Legal Name</th>
+                    <th>Active Balance</th>
+                    <th>Risk Tier</th>
+                    <th>Account Health</th>
+                  </tr>
+                </thead>
+                <tbody id="borrowersTableBody">
+                  <tr>
+                    <td class="font-bold text-white">CUST-1049</td>
+                    <td>Alex Morgan</td>
+                    <td>$12,450.00</td>
+                    <td><span class="badge badge-success">Tier A (Prime)</span></td>
+                    <td><span class="text-xs text-emerald"><i class="fas fa-check-circle"></i> On-Time Perfect</span></td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-white">CUST-1052</td>
+                    <td>Elena Gomez</td>
+                    <td>$45,200.00</td>
+                    <td><span class="badge badge-info">Tier B (Standard)</span></td>
+                    <td><span class="text-xs text-emerald"><i class="fas fa-check-circle"></i> Current</span></td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-white">CUST-1058</td>
+                    <td>Apex Retail Group</td>
+                    <td>$210,000.00</td>
+                    <td><span class="badge badge-success">Tier A (Prime)</span></td>
+                    <td><span class="text-xs text-emerald"><i class="fas fa-check-circle"></i> Perfect</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- SECTION 18: Reports and Analytics -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="d-flex justify-between align-center mb-2">
+              <h4 class="text-white"><i class="fas fa-file-excel text-emerald mr-2"></i> Reports & Export Suite</h4>
+              <a href="404.html" class="btn btn-sm btn-primary">
+                <i class="fas fa-download"></i> Export Master Portfolio CSV
+              </a>
+            </div>
+            <p class="text-xs text-slate-400">Download formatted accounting statements, delinquency reports, and origination audit archives.</p>
+          </div>
+          <!-- SECTION 19: Email Center (Interactive Functional Simulator) -->
+          <div class="card card-glass p-4 mb-4" id="adminEmailCenterSection">
+            <h3 class="text-white mb-3"><i class="fas fa-inbox text-emerald mr-2"></i> Operations Email Center</h3>
+            <div class="email-center-container">
+              
+              <!-- Left: Folders -->
+              <div class="email-folders">
+                <button type="button" class="email-folder-btn active" data-folder="Inbox">
+                  <i class="fas fa-inbox"></i> Inbox <span class="badge-count">3</span>
+                </button>
+                <button type="button" class="email-folder-btn" data-folder="Underwriting">
+                  <i class="fas fa-stamp"></i> Underwriting <span class="badge-count">2</span>
+                </button>
+                <button type="button" class="email-folder-btn" data-folder="Servicing">
+                  <i class="fas fa-receipt"></i> Servicing
+                </button>
+                <button type="button" class="email-folder-btn" data-folder="Sent">
+                  <i class="fas fa-paper-plane"></i> Sent
+                </button>
+              </div>
+
+              <!-- Middle: Email List -->
+              <div class="email-list-column">
+                <div class="email-search-bar">
+                  <input type="text" placeholder="Search operational messages...">
+                </div>
+                <div class="email-items-scroll">
+                  <div class="email-item selected" data-sender="Credit Risk Committee" data-subject="Weekly Underwriting Threshold Audit Complete" data-time="10:15 AM" data-body="The algorithmic risk parameters for Q3 have passed compliance stress testing. DTI caps will remain locked at 45% for retail products.">
+                    <div class="email-item-header">
+                      <span class="email-sender">Credit Risk Committee</span>
+                      <span class="email-time">10:15 AM</span>
+                    </div>
+                    <div class="email-subject">Weekly Underwriting Threshold Audit</div>
+                    <div class="email-preview">The algorithmic risk parameters for Q3 have passed compliance stress testing...</div>
+                  </div>
+
+                  <div class="email-item" data-sender="Treasury Operations" data-subject="Liquidity Buffer Rebalancing: $2.5M Added" data-time="Yesterday" data-body="Treasury has confirmed the replenishment of the secondary liquidity buffer to support anticipated commercial loan disbursements.">
+                    <div class="email-item-header">
+                      <span class="email-sender">Treasury Operations</span>
+                      <span class="email-time">Yesterday</span>
+                    </div>
+                    <div class="email-subject">Liquidity Buffer Rebalancing: $2.5M</div>
+                    <div class="email-preview">Treasury has confirmed the replenishment of the secondary liquidity buffer...</div>
+                  </div>
+
+                  <div class="email-item" data-sender="Borrower Support Desk" data-subject="Customer Application Verification #CRD-APP-90124" data-time="2 days ago" data-body="Applicant Sarah Jenkins has uploaded additional tax verification documents requested during initial screening.">
+                    <div class="email-item-header">
+                      <span class="email-sender">Borrower Support Desk</span>
+                      <span class="email-time">2d ago</span>
+                    </div>
+                    <div class="email-subject">Customer Verification #CRD-APP-90124</div>
+                    <div class="email-preview">Applicant Sarah Jenkins has uploaded additional tax verification documents...</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Email Preview Reading Pane -->
+              <div class="email-preview-pane">
+                <div class="email-detail-header">
+                  <h4 class="email-detail-title text-white">Weekly Underwriting Threshold Audit Complete</h4>
+                  <div class="email-detail-meta">
+                    <span class="email-detail-sender">From: Credit Risk Committee</span>
+                    <span class="email-detail-time">10:15 AM EST</span>
+                  </div>
+                </div>
+                <div class="email-detail-body">
+                  <p>
+                    The algorithmic risk parameters for Q3 have passed automated compliance stress testing. DTI caps will remain locked at 45% for retail personal loan products, while commercial SME facilities require a minimum 1.25x Debt Service Coverage Ratio (DSCR).
+                  </p>
+                  <p class="mt-3 text-muted" style="font-size:0.8rem;">
+                    [This is an automated demonstration message generated by the Credora Core Banking Simulator]
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- SECTION 17: Notifications Panel -->
+          <div class="card card-glass p-4 mb-4">
+            <h4 class="text-white mb-3"><i class="fas fa-bell text-emerald mr-2"></i> Operations Notification Stream</h4>
+            <div class="d-flex" style="flex-direction:column; gap:0.75rem;">
+              <div class="d-flex align-center gap-2 p-2" style="background:rgba(16,185,129,0.06); border-radius:8px;">
+                <i class="fas fa-check-circle text-emerald"></i>
+                <span class="text-xs text-slate-300">Nightly ACH settlement reconciled successfully: 142 batch items cleared.</span>
+                <span class="text-xs text-slate-500 ml-auto">12m ago</span>
+              </div>
+              <div class="d-flex align-center gap-2 p-2" style="background:rgba(59,130,246,0.06); border-radius:8px;">
+                <i class="fas fa-info-circle text-info"></i>
+                <span class="text-xs text-slate-300">Commercial credit facility #CRD-APP-90125 submitted for underwriting review.</span>
+                <span class="text-xs text-slate-500 ml-auto">35m ago</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="applicationActionModal">
+    <div class="modal-dialog">
+      <div class="modal-close-btn" role="button" aria-label="Close dialog"><i class="fas fa-times"></i></div>
+      <span class="badge badge-warning mb-2">UNDERWRITING INSPECTION</span>
+      <h3 class="text-white mb-2" id="appModalId">#CRD-APP-90124</h3>
+      <p class="text-xs text-slate-400 mb-4">Review applicant telemetry and execute demonstrative adjudication.</p>
+
+      <div class="p-3 mb-4" style="background:#070D1E; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.08);">
+        <div class="d-flex justify-between text-sm py-1 border-bottom">
+          <span class="text-slate-400">Applicant Name:</span>
+          <strong class="text-white" id="appModalApplicant">Sarah Jenkins</strong>
+        </div>
+        <div class="d-flex justify-between text-sm py-1 border-bottom">
+          <span class="text-slate-400">Requested Amount:</span>
+          <strong class="text-emerald" id="appModalAmount">$35,000</strong>
+        </div>
+        <div class="d-flex justify-between text-sm py-1">
+          <span class="text-slate-400">Product Category:</span>
+          <strong class="text-white" id="appModalCategory">Personal Growth</strong>
+        </div>
+      </div>
+
+      <div class="d-flex justify-between gap-3">
+        <a href="404.html" class="btn btn-secondary w-100" id="btnRejectApplication">
+          <i class="fas fa-ban text-danger"></i> Reject (Demo)
+        </a>
+        <a href="404.html" class="btn btn-primary w-100" id="btnApproveApplication">
+          <i class="fas fa-check text-white"></i> Approve & Sanction (Demo)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/dashboard.js"></script>
+</body>
+</html>

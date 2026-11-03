@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Application — Credora Finance</title>
+  <meta name="description" content="Apply for personal, commercial, or education financing through Credora Finance's transparent 5-step multi-step application workflow.">
+  <meta name="keywords" content="loan application, apply loan, fintech loan application, credit pre-approval, multi-step application">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Libraries (AOS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+  <style>
+    /* Application Stepper Specifics */
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .stepper-steps {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .step-indicator-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: var(--transition-fast);
+    }
+    .step-indicator-item.active {
+      opacity: 1;
+    }
+    .step-indicator-item.completed {
+      opacity: 0.9;
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #FFFFFF;
+    }
+    .step-indicator-item.active .step-number {
+      background: var(--color-primary);
+      color: #060B18;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 12px var(--color-primary-glow);
+    }
+    .step-indicator-item.completed .step-number {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .step-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-slate-300);
+    }
+    .wizard-step-panel {
+      display: none;
+    }
+    .wizard-step-panel.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <div class="nav-actions-mobile">
+          <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+        <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <section class="section" style="padding: 4rem 0 5rem;" id="loanApplicationWizard">
+      <div class="container container-narrow">
+
+        <!-- Wizard Title & Progress -->
+        <div class="text-center mb-4" data-aos="fade-up">
+          <div class="section-badge mb-2">Loan Origination Engine</div>
+          <h1 class="text-white mb-2">Structured Loan Application</h1>
+          <p class="text-sm text-slate-400">Complete our 5-step digital onboarding in under 5 minutes.</p>
+        </div>
+
+        <!-- Progress Bar & Indicator -->
+        <div class="mb-4" data-aos="fade-up">
+          <div class="d-flex justify-between text-xs text-slate-400 mb-2">
+            <span id="wizardProgressText" class="font-bold text-emerald">Step 1 of 5 (20%)</span>
+            <span>Estimated time: ~3 mins</span>
+          </div>
+          <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+            <div id="wizardProgressBar" style="width: 20%; height: 100%; background: linear-gradient(90deg, var(--color-primary), #34D399); transition: width 0.3s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Stepper Navigation -->
+        <div class="stepper-header mb-4" data-aos="fade-up">
+          <div class="stepper-steps">
+            <div class="step-indicator-item active" data-step="1">
+              <div class="step-number">1</div>
+              <span class="step-label">Personal</span>
+            </div>
+            <div class="step-indicator-item" data-step="2">
+              <div class="step-number">2</div>
+              <span class="step-label">Employment</span>
+            </div>
+            <div class="step-indicator-item" data-step="3">
+              <div class="step-number">3</div>
+              <span class="step-label">Loan Terms</span>
+            </div>
+            <div class="step-indicator-item" data-step="4">
+              <div class="step-number">4</div>
+              <span class="step-label">Financial</span>
+            </div>
+            <div class="step-indicator-item" data-step="5">
+              <div class="step-number">5</div>
+              <span class="step-label">Review</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Application Multi-Step Form Wrapper -->
+        <div class="card card-glass p-4" data-aos="fade-up">
+          <form id="multiStepLoanForm" novalidate>
+
+            <!-- ================= STEP 1: Personal Details ================= -->
+            <div class="wizard-step-panel active" id="stepPanel1">
+              <h3 class="text-white mb-1"><i class="fas fa-user-circle text-emerald mr-2"></i> Step 1: Personal Details</h3>
+              <p class="text-xs text-slate-400 mb-4">Please provide your primary verifiable identification information.</p>
+
+              <div class="form-group">
+                <label class="form-label" for="appFullName">Full Legal Name *</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user input-icon"></i>
+                  <input type="text" id="appFullName" class="form-control" placeholder="Alex Morgan" required>
+                </div>
+                <div class="form-error"></div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="appDob">Date of Birth *</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-calendar input-icon"></i>
+                    <input type="date" id="appDob" class="form-control" required style="color-scheme: dark;">
+                  </div>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appPhone">Mobile Phone *</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-phone input-icon"></i>
+                    <input type="tel" id="appPhone" class="form-control" placeholder="+1 (555) 234-5678" required>
+                  </div>
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="appEmail">Email Address *</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input type="email" id="appEmail" class="form-control" placeholder="alex.morgan@example.com" required>
+                </div>
+                <div class="form-error"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="appAddress">Residential Address *</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-home input-icon"></i>
+                  <input type="text" id="appAddress" class="form-control" placeholder="742 Evergreen Terrace, New York, NY 10001" required>
+                </div>
+                <div class="form-error"></div>
+              </div>
+
+              <div class="d-flex justify-between mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                <span></span>
+                <!-- Required Functional Navigation Button -->
+                <button type="button" class="btn btn-primary btn-wizard-next">
+                  Next: Employment Details <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 2: Employment Details ================= -->
+            <div class="wizard-step-panel" id="stepPanel2">
+              <h3 class="text-white mb-1"><i class="fas fa-briefcase text-emerald mr-2"></i> Step 2: Employment Details</h3>
+              <p class="text-xs text-slate-400 mb-4">Provide details regarding your primary source of verifiable earnings.</p>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="appEmpType">Employment Status *</label>
+                  <select id="appEmpType" class="form-control" required style="background:#0B132B;">
+                    <option value="">Select status</option>
+                    <option value="Salaried Full-Time">Salaried Full-Time</option>
+                    <option value="Self-Employed / Business">Self-Employed / Business Owner</option>
+                    <option value="Contract / Freelance">Contractor / Freelancer</option>
+                    <option value="Professional Practice">Professional Practice (MD, JD, CPA)</option>
+                  </select>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appEmployerName">Employer or Company Name *</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-building input-icon"></i>
+                    <input type="text" id="appEmployerName" class="form-control" placeholder="Apex Technology LLC" required>
+                  </div>
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="appMonthlyIncome">Monthly Net Income ($) *</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-dollar-sign input-icon"></i>
+                    <input type="number" id="appMonthlyIncome" class="form-control" placeholder="6500" min="500" required>
+                  </div>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appEmpDuration">Duration in Current Role *</label>
+                  <select id="appEmpDuration" class="form-control" required style="background:#0B132B;">
+                    <option value="">Select tenure</option>
+                    <option value="Less than 1 Year">&lt; 1 Year</option>
+                    <option value="1 to 3 Years">1 to 3 Years</option>
+                    <option value="3 to 5 Years">3 to 5 Years</option>
+                    <option value="5+ Years">5+ Years</option>
+                  </select>
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-between mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                <button type="button" class="btn btn-secondary btn-wizard-prev">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button type="button" class="btn btn-primary btn-wizard-next">
+                  Next: Loan Details <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 3: Loan Details ================= -->
+            <div class="wizard-step-panel" id="stepPanel3">
+              <h3 class="text-white mb-1"><i class="fas fa-hand-holding-dollar text-emerald mr-2"></i> Step 3: Loan Terms</h3>
+              <p class="text-xs text-slate-400 mb-4">Specify the requested facility parameters and purpose.</p>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="appLoanCategory">Product Category *</label>
+                  <select id="appLoanCategory" class="form-control" required style="background:#0B132B;">
+                    <option value="">Select category</option>
+                    <option value="Personal Growth Loan">Personal Growth Loan</option>
+                    <option value="Commercial SME Credit">Commercial SME Credit</option>
+                    <option value="Higher Education Loan">Higher Education Loan</option>
+                    <option value="Working Capital Bridge">Working Capital Bridge</option>
+                  </select>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appLoanAmount">Requested Loan Amount ($) *</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-money-bill-wave input-icon"></i>
+                    <input type="number" id="appLoanAmount" class="form-control" placeholder="25000" min="500" max="500000" step="500" required>
+                  </div>
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="appLoanTenure">Requested Tenure *</label>
+                  <select id="appLoanTenure" class="form-control" required style="background:#0B132B;">
+                    <option value="">Select tenure</option>
+                    <option value="12 Months">12 Months (1 Year)</option>
+                    <option value="24 Months">24 Months (2 Years)</option>
+                    <option value="36 Months">36 Months (3 Years)</option>
+                    <option value="48 Months">48 Months (4 Years)</option>
+                    <option value="60 Months">60 Months (5 Years)</option>
+                  </select>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appLoanPurpose">Purpose of Loan *</label>
+                  <input type="text" id="appLoanPurpose" class="form-control" placeholder="e.g. Home renovation, Working capital, Tuition" required>
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-between mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                <button type="button" class="btn btn-secondary btn-wizard-prev">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button type="button" class="btn btn-primary btn-wizard-next">
+                  Next: Financial Profile <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 4: Financial Information ================= -->
+            <div class="wizard-step-panel" id="stepPanel4">
+              <h3 class="text-white mb-1"><i class="fas fa-wallet text-emerald mr-2"></i> Step 4: Financial Profile</h3>
+              <p class="text-xs text-slate-400 mb-4">Provide details on existing commitments to assist our affordability analysis.</p>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="appExistingObligations">Existing Monthly Debt Obligations ($) *</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-calculator input-icon"></i>
+                    <input type="number" id="appExistingObligations" class="form-control" placeholder="0" min="0" required>
+                  </div>
+                  <small class="text-xs text-slate-500">Include car notes, credit cards, or existing loans ($0 if none).</small>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appRepaymentPref">Repayment Channel Preference *</label>
+                  <select id="appRepaymentPref" class="form-control" required style="background:#0B132B;">
+                    <option value="">Select channel</option>
+                    <option value="Automated ACH Auto-Debit (0.25% Discount)">Automated ACH Auto-Debit</option>
+                    <option value="Debit Card Online Portal">Debit Card Online Portal</option>
+                    <option value="Direct Wire / Bank Transfer">Direct Wire / Electronic Transfer</option>
+                  </select>
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="appRemarks">Additional Information / Remarks (Optional)</label>
+                <textarea id="appRemarks" class="form-control" rows="3" placeholder="Provide any additional context regarding collateral, co-signers, or seasonal revenue patterns..."></textarea>
+              </div>
+
+              <div class="d-flex justify-between mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                <button type="button" class="btn btn-secondary btn-wizard-prev">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button type="button" class="btn btn-primary btn-wizard-next">
+                  Review & Confirm <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 5: Review & Submit ================= -->
+            <div class="wizard-step-panel" id="stepPanel5">
+              <h3 class="text-white mb-1"><i class="fas fa-check-double text-emerald mr-2"></i> Step 5: Review & Submit</h3>
+              <p class="text-xs text-slate-400 mb-4">Carefully review your entered parameters before submitting for simulated underwriting.</p>
+
+              <!-- Dynamic Review Summary Container -->
+              <div id="applicationReviewSummary" class="mb-4">
+                <!-- Dynamically populated via assets/application.js -->
+              </div>
+
+              <!-- Terms & Demo Confirmation -->
+              <div class="p-3 mb-4" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.25); border-radius:var(--radius-md);">
+                <label class="d-flex align-center gap-2" style="cursor:pointer;">
+                  <input type="checkbox" id="appTermsCheck" required style="width:18px; height:18px; accent-color:var(--color-primary);">
+                  <span class="text-xs text-slate-200">
+                    I understand that this is a <strong>software demonstration simulation</strong>. No actual banking data is accessed, no inquiry is made to credit bureaus, and no real loan contract is formed.
+                  </span>
+                </label>
+              </div>
+
+              <div class="d-flex justify-between mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                <button type="button" class="btn btn-secondary btn-wizard-prev">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <!-- Functional Demo Submission Exception -->
+                <button type="button" class="btn btn-primary btn-lg" id="btnSubmitApplicationDemo">
+                  <i class="fas fa-paper-plane"></i> Submit Demo Application
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Application Success Modal (Demo Confirmation) -->
+  <div class="modal-backdrop" id="applicationSuccessModal">
+    <div class="modal-dialog text-center">
+      <div class="pulse-dot mx-auto mb-3" style="width:16px; height:16px;"></div>
+      <span class="badge badge-success mb-2">SIMULATION SUBMITTED</span>
+      <h2 class="text-white mb-2">Application Received!</h2>
+      <p class="text-sm text-slate-300 mb-4">
+        Your demonstrative loan application has been forwarded to the Credora Underwriting Queue.
+      </p>
+
+      <div class="p-3 mb-4 text-center" style="background:#070D1E; border-radius:var(--radius-md); border:1px dashed var(--color-primary);">
+        <span class="text-xs text-slate-400 d-block">Generated Application Reference</span>
+        <div class="text-gradient-emerald text-xl font-bold my-1" id="generatedAppRef">
+          CRD-DEMO-89412
+        </div>
+        <span class="text-xs text-slate-500">Status: Under Review (Simulated)</span>
+      </div>
+
+      <div class="d-flex justify-center gap-3">
+        <a href="customer-dashboard.html" class="btn btn-primary">
+          <i class="fas fa-chart-pie"></i> View in Customer Dashboard
+        </a>
+        <a href="index.html" class="btn btn-secondary">Return Home</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Site Footer (Matching Reference) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & Social Circles -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            Compassionate veterinary medicine, preventive health examinations, and lifelong wellness for dogs and cats.
+          </p>
+          <div class="footer-social-circles">
+            <a href="404.html" class="social-circle-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="index.html"><span class="link-arrow">&gt;</span> Home</a></li>
+            <li><a href="services.html"><span class="link-arrow">&gt;</span> Services</a></li>
+            <li><a href="about.html"><span class="link-arrow">&gt;</span> About</a></li>
+            <li><a href="blog.html"><span class="link-arrow">&gt;</span> Blog</a></li>
+            <li><a href="contact.html"><span class="link-arrow">&gt;</span> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Portal Access -->
+        <div class="footer-col">
+          <h4 class="footer-title">Portal Access</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="login.html"><span class="link-arrow">&gt;</span> Staff Login</a></li>
+            <li><a href="signup.html"><span class="link-arrow">&gt;</span> Staff Sign Up</a></li>
+            <li><a href="admin-dashboard.html"><span class="link-arrow">&gt;</span> Admin Dashboard</a></li>
+            <li><a href="customer-dashboard.html"><span class="link-arrow">&gt;</span> Vet Workspace</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Client Portal (404)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Clinic Hours (Demo) -->
+        <div class="footer-col footer-col-hours">
+          <h4 class="footer-title">Clinic Hours (Demo)</h4>
+          <div class="footer-title-line"></div>
+          <div class="footer-hours-card">
+            <div class="hours-row">
+              <span class="hours-day">Mon – Fri:</span>
+              <strong class="hours-time">8:00 AM – 7:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday:</span>
+              <strong class="hours-time">9:00 AM – 4:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday:</span>
+              <strong class="hours-time">Emergency / Closed</strong>
+            </div>
+          </div>
+          <div class="footer-location-tag">
+            <i class="fas fa-location-dot"></i>
+            <span>Stackly, Tamil Nadu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Stackly. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Architecture</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/validation.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/application.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>

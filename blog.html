@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Insights & Education — Credora Finance</title>
+  <meta name="description" content="Master credit scoring, reducing-balance loan mechanics, debt management, and corporate financial planning with Credora Finance's educational insights.">
+  <meta name="keywords" content="financial education, loan mathematics, EMI calculation guide, credit score optimization, debt management, personal finance, business finance">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Libraries (AOS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <div class="nav-actions-mobile">
+          <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+        <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- =========================================================================
+         SECTION 1: Financial Insights Hero
+         ========================================================================= -->
+    <section class="section" style="padding: 4.5rem 0 3.5rem; background: radial-gradient(circle at 50% 20%, rgba(16,185,129,0.12) 0%, #070D1E 100%);" id="blogHero">
+      <div class="container text-center" data-aos="fade-up">
+        <div class="section-badge">Financial Intelligence & Research</div>
+        <h1 class="text-white mb-3">Mastering the Mathematics of <span class="text-gradient">Modern Credit</span></h1>
+        <p class="section-subtitle mx-auto mb-4">
+          Independent analysis, mathematical breakdowns, and strategic guides to help borrowers navigate personal and commercial financing.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: Featured Article (Deep Dive Hero Card)
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="featuredArticle">
+      <div class="container">
+        <div class="card card-glass p-4" data-aos="fade-up">
+          <div class="split-section" style="gap:3rem;">
+            <div>
+              <span class="badge badge-success mb-2">Featured Research</span>
+              <h2 class="text-white mb-3">Why Reducing-Balance Math Always Beats Flat-Rate Loans</h2>
+              <p class="text-sm text-slate-300 mb-3">
+                Commercial and retail borrowers frequently get misled by low-headline "flat interest rates" that actually carry effective APRs nearly double their stated figure. We explain the exact compounding equation.
+              </p>
+              <div class="d-flex align-center gap-3 text-xs text-slate-400 mb-4">
+                <span>By Elena Rostova</span>
+                <span>•</span>
+                <span>8 Min Read</span>
+                <span>•</span>
+                <span>Financial Mathematics</span>
+              </div>
+              <a href="404.html" class="btn btn-primary">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div>
+              <img src="assets/blog-2.webp" alt="Reducing Balance Amortization Chart" style="border-radius:var(--radius-md); width:100%; height:280px; object-fit:cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: Editor's Pick
+         ========================================================================= -->
+    <section class="section" id="editorsPick">
+      <div class="container">
+        <div class="split-section">
+          <div class="card card-glass" data-aos="fade-right">
+            <img src="assets/blog-1.webp" alt="Credit Score Mechanics" style="border-radius:var(--radius-md); width:100%; height:260px; object-fit:cover;">
+          </div>
+          <div data-aos="fade-left">
+            <span class="badge badge-info mb-2">Editor's Pick</span>
+            <h2 class="section-title">The Five Levers of Credit Bureau Scoring</h2>
+            <p class="mb-3">
+              How credit bureaus actually weight payment timeliness, credit utilization percentages, length of credit history, and new inquiries.
+            </p>
+            <p class="text-muted mb-4">
+              Understanding why maintaining utilization below 30% creates an outsized positive effect on tier classifications.
+            </p>
+            <a href="404.html" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: Personal Finance Fundamentals
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="personalFinance">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Fundamentals</div>
+          <h2 class="section-title">Personal Finance Mastery</h2>
+          <p class="section-subtitle">
+            Essential principles for budgeting, cash-flow hygiene, and savings allocation.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="text-white mb-2">The 50/30/20 Rule in Practice</h4>
+            <p class="text-sm text-slate-400 mb-3">How to adapt classical income allocation guidelines in high-inflation environments.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Read Guide &rarr;</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="text-white mb-2">Building Liquidity Buffers</h4>
+            <p class="text-sm text-slate-400 mb-3">Why a 3-month emergency fund is the single greatest defense against high-interest debt.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Read Guide &rarr;</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="text-white mb-2">Automated Savings Architecture</h4>
+            <p class="text-sm text-slate-400 mb-3">Eliminating cognitive friction by setting automatic sweep rules on payday.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: Credit Score Education
+         ========================================================================= -->
+    <section class="section" id="creditScoreEducation">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <div class="section-badge">Credit Health</div>
+            <h2 class="section-title">Optimizing Your Score Without Gimmicks</h2>
+            <p class="mb-3">
+              Many borrowers fall prey to costly "credit repair" schemes that promise overnight score spikes. True credit improvement is mathematical and predictable.
+            </p>
+            <ul class="d-flex" style="flex-direction:column; gap:0.75rem;">
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> Keep revolving balances below 20% on statement closing dates
+              </li>
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> Avoid closing oldest accounts to maintain credit depth
+              </li>
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> Space hard inquiries out by at least 6 months
+              </li>
+            </ul>
+          </div>
+
+          <div class="card card-glass text-center p-4" data-aos="fade-left">
+            <div class="pulse-dot mx-auto mb-2"></div>
+            <span class="text-xs text-slate-400">CREDIT COMPOSITION BREAKDOWN</span>
+            <div class="grid-2 my-3 text-left">
+              <div class="p-2" style="background:rgba(16,185,129,0.1); border-radius:8px;">
+                <span class="text-xs font-bold text-emerald">35% Payment History</span>
+              </div>
+              <div class="p-2" style="background:rgba(59,130,246,0.1); border-radius:8px;">
+                <span class="text-xs font-bold text-info">30% Amounts Owed</span>
+              </div>
+              <div class="p-2" style="background:rgba(245,158,11,0.1); border-radius:8px;">
+                <span class="text-xs font-bold text-warning">15% Length of History</span>
+              </div>
+              <div class="p-2" style="background:rgba(139,92,246,0.1); border-radius:8px;">
+                <span class="text-xs font-bold" style="color:#A78BFA;">20% Credit Mix & Inquiries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 6: Loan Fundamentals
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="loanFundamentals">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Borrowing 101</div>
+          <h2 class="section-title">Loan Terminology Decoded</h2>
+          <p class="section-subtitle">
+            Never sign a loan document without fully understanding every clause, covenant, and definition.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4 class="text-white mb-2">Secured vs. Unsecured</h4>
+            <p class="text-sm text-slate-400">Understanding collateral lien risks versus the rate premium of unsecured debt.</p>
+          </div>
+
+          <div class="card">
+            <h4 class="text-white mb-2">Nominal Rate vs. APR</h4>
+            <p class="text-sm text-slate-400">Why Annual Percentage Rate (APR) incorporates upfront closing fees to show true annualized cost.</p>
+          </div>
+
+          <div class="card">
+            <h4 class="text-white mb-2">Amortization Tenure</h4>
+            <p class="text-sm text-slate-400">How stretching a tenure from 36 to 60 months lowers monthly EMI but significantly raises total lifetime interest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 7: EMI & Interest Education
+         ========================================================================= -->
+    <section class="section" id="emiEducation">
+      <div class="container">
+        <div class="card card-glass p-4" data-aos="fade-up">
+          <div class="split-section">
+            <div>
+              <div class="section-badge">Math Breakdown</div>
+              <h3 class="text-white mb-3">The Reducing Balance Equation Explained</h3>
+              <p class="text-sm text-slate-300 mb-3">
+                In standard reducing balance amortization, every monthly payment is divided into two parts: interest on the remaining principal, and the remainder which pays down that principal.
+              </p>
+              <p class="text-sm text-slate-400 mb-4">
+                As the principal declines, the required interest payment shrinks each month, allowing more of your fixed EMI to pay off the principal faster.
+              </p>
+              <a href="404.html" class="btn btn-outline-emerald btn-sm">Try Interactive Calculator</a>
+            </div>
+
+            <div class="p-3" style="background:#070D1E; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.08);">
+              <h5 class="text-white mb-2">Formula Specification</h5>
+              <code class="text-xs text-emerald" style="display:block; line-height:1.8;">
+                EMI = [P * r * (1+r)^n] / [(1+r)^n - 1]<br><br>
+                Where:<br>
+                P = Principal Loan Amount<br>
+                r = Periodic Monthly Rate (Annual Rate / 12 / 100)<br>
+                n = Total Number of Monthly Installments
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 8: Responsible Borrowing Guide
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="responsibleBorrowingGuide">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Consumer Protection</div>
+          <h2 class="section-title">The Responsible Borrowing Checklist</h2>
+          <p class="section-subtitle">
+            Ask these four critical questions before committing to any credit agreement.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card text-center">
+            <div class="card-icon mx-auto"><i class="fas fa-question"></i></div>
+            <h5 class="text-white mb-2">1. Is this productive debt?</h5>
+            <p class="text-xs text-slate-400">Does this financing create long-term value (education, home equity, business expansion)?</p>
+          </div>
+
+          <div class="card text-center">
+            <div class="card-icon mx-auto"><i class="fas fa-shield"></i></div>
+            <h5 class="text-white mb-2">2. What if income drops 20%?</h5>
+            <p class="text-xs text-slate-400">Can you comfortably service this EMI during unexpected career or business downturns?</p>
+          </div>
+
+          <div class="card text-center">
+            <div class="card-icon mx-auto"><i class="fas fa-calendar-xmark"></i></div>
+            <h5 class="text-white mb-2">3. Are there prepay fees?</h5>
+            <p class="text-xs text-slate-400">Will the lender penalize you if you want to settle the balance ahead of schedule?</p>
+          </div>
+
+          <div class="card text-center">
+            <div class="card-icon mx-auto"><i class="fas fa-file-contract"></i></div>
+            <h5 class="text-white mb-2">4. Have you seen the full table?</h5>
+            <p class="text-xs text-slate-400">Have you inspected the full amortization schedule showing the exact total interest?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 9: Business Finance
+         ========================================================================= -->
+    <section class="section" id="businessFinanceInsights">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <div class="section-badge">Enterprise Strategy</div>
+            <h2 class="section-title">Working Capital Optimization for SMEs</h2>
+            <p class="mb-3">
+              Fast-growing companies often experience cash-flow strains when receivables lag inventory procurement. Learn how to structure revolving lines of credit without sacrificing equity.
+            </p>
+            <p class="text-muted mb-4">
+              Comparing debt service coverage ratio (DSCR) benchmarks across retail, manufacturing, and software sectors.
+            </p>
+            <a href="404.html" class="btn btn-primary">Read Article</a>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-left">
+            <img src="assets/blog-3.webp" alt="Corporate Strategy Meeting" style="border-radius:var(--radius-md); width:100%; height:260px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 10: Financial Planning & Emergency Funds
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="financialPlanning">
+      <div class="container text-center">
+        <div class="section-badge">Long-Term Resilience</div>
+        <h2 class="section-title">Building Multi-Tiered Financial Reserves</h2>
+        <p class="section-subtitle mx-auto mb-4">
+          How to structure liquid cash reserves, short-term treasury assets, and credit buffers for total stability.
+        </p>
+        <div class="grid-3 text-left">
+          <div class="card">
+            <h4 class="text-white mb-2">Tier 1: Immediate Checking</h4>
+            <p class="text-sm text-slate-400">1 month of operating cash flow to avoid overdraft charges.</p>
+          </div>
+          <div class="card">
+            <h4 class="text-white mb-2">Tier 2: High-Yield Reserve</h4>
+            <p class="text-sm text-slate-400">3-6 months in high-yield liquid savings for sudden income disruption.</p>
+          </div>
+          <div class="card">
+            <h4 class="text-white mb-2">Tier 3: Standby Credit Facility</h4>
+            <p class="text-sm text-slate-400">Pre-approved zero-fee revolving line for unexpected emergency expenditures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 11: Debt Management Education
+         ========================================================================= -->
+    <section class="section" id="debtManagement">
+      <div class="container">
+        <div class="split-section">
+          <div class="card card-glass" data-aos="fade-right">
+            <img src="assets/blog-5.webp" alt="Debt Strategy Evaluation" style="border-radius:var(--radius-md); width:100%; height:260px; object-fit:cover;">
+          </div>
+          <div data-aos="fade-left">
+            <div class="section-badge">Debt Optimization</div>
+            <h2 class="section-title">Debt Avalanche vs. Debt Snowball</h2>
+            <p class="mb-3">
+              Which repayment strategy minimizes total interest paid, and which offers the psychological momentum necessary for long-term consistency?
+            </p>
+            <div class="p-3 mb-2" style="background:rgba(16,185,129,0.08); border-radius:8px;">
+              <strong class="text-emerald text-sm">Debt Avalanche:</strong> Target the highest interest rate first. Mathematically optimal.
+            </div>
+            <div class="p-3 mb-4" style="background:rgba(59,130,246,0.08); border-radius:8px;">
+              <strong class="text-info text-sm">Debt Snowball:</strong> Target the smallest balance first. Psychologically empowering.
+            </div>
+            <a href="404.html" class="btn btn-primary">Read Deep-Dive</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 12: Latest Articles Stream
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="latestArticles">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Fresh Perspectives</div>
+          <h2 class="section-title">Latest Articles</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/blog-4.webp" alt="Understanding Interest Rates" style="border-radius:var(--radius-md); height:160px; width:100%; object-fit:cover; margin-bottom:1rem;">
+            <span class="badge badge-info mb-2">Macro Trends</span>
+            <h4 class="text-white mb-2">How Central Bank Rates Influence Retail Lending</h4>
+            <p class="text-xs text-slate-400 mb-3">Connecting benchmark interest policy to your daily personal loan rates.</p>
+            <a href="404.html" class="btn btn-sm btn-outline-emerald">Read Article</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/blog-5.webp" alt="Debt Restructuring" style="border-radius:var(--radius-md); height:160px; width:100%; object-fit:cover; margin-bottom:1rem;">
+            <span class="badge badge-success mb-2">Consolidation</span>
+            <h4 class="text-white mb-2">When Does Debt Consolidation Actually Make Sense?</h4>
+            <p class="text-xs text-slate-400 mb-3">Analyzing loan origination fees against net APR differential savings.</p>
+            <a href="404.html" class="btn btn-sm btn-outline-emerald">Read Article</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <img src="assets/blog-6.webp" alt="Student Debt Management" style="border-radius:var(--radius-md); height:160px; width:100%; object-fit:cover; margin-bottom:1rem;">
+            <span class="badge badge-warning mb-2">Education</span>
+            <h4 class="text-white mb-2">Managing Student Debt Post-Graduation</h4>
+            <p class="text-xs text-slate-400 mb-3">Maximizing grace periods and setting up automated career-starter budgets.</p>
+            <a href="404.html" class="btn btn-sm btn-outline-emerald">Read Article</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 13: Popular Articles
+         ========================================================================= -->
+    <section class="section" id="popularArticles">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Trending</div>
+          <h2 class="section-title">Most Read Insights</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <span class="text-xs text-emerald font-bold mb-1 d-block">#1 MOST POPULAR</span>
+            <h4 class="text-white mb-2">10 Mistakes to Avoid When Applying for a Personal Loan</h4>
+            <p class="text-sm text-slate-400 mb-3">From multiple hard inquiries to ignoring early settlement clauses.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Read Now &rarr;</a>
+          </div>
+
+          <div class="card">
+            <span class="text-xs text-emerald font-bold mb-1 d-block">#2 MOST POPULAR</span>
+            <h4 class="text-white mb-2">The True Cost of Deferred Interest Credit Cards</h4>
+            <p class="text-sm text-slate-400 mb-3">Why retroactive interest triggers trap unwary consumers.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Read Now &rarr;</a>
+          </div>
+
+          <div class="card">
+            <span class="text-xs text-emerald font-bold mb-1 d-block">#3 MOST POPULAR</span>
+            <h4 class="text-white mb-2">SME Loan Covenants Demystified</h4>
+            <p class="text-sm text-slate-400 mb-3">Navigating debt-service coverage and working capital liquidity thresholds.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Read Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 14: Article Categories Browser
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="articleCategories">
+      <div class="container text-center">
+        <div class="section-badge mb-2">Topics</div>
+        <h2 class="section-title">Browse by Knowledge Domain</h2>
+        <div class="d-flex justify-center gap-2 mt-4" style="flex-wrap:wrap;">
+          <a href="404.html" class="btn btn-secondary btn-sm">Credit Scores (14)</a>
+          <a href="404.html" class="btn btn-secondary btn-sm">Loan Mathematics (19)</a>
+          <a href="404.html" class="btn btn-secondary btn-sm">Business Financing (22)</a>
+          <a href="404.html" class="btn btn-secondary btn-sm">Debt Consolidation (11)</a>
+          <a href="404.html" class="btn btn-secondary btn-sm">Education Funding (8)</a>
+          <a href="404.html" class="btn btn-secondary btn-sm">Responsible Borrowing (15)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 15: Search and Filtering Interface
+         ========================================================================= -->
+    <section class="section" id="blogSearchFilter">
+      <div class="container container-narrow">
+        <div class="card card-glass p-4 text-center">
+          <h3 class="text-white mb-3">Search the Financial Knowledge Base</h3>
+          <form class="d-flex gap-2" onsubmit="event.preventDefault(); showToast('Searching demo knowledge base...', 'info');">
+            <input type="text" class="form-control" placeholder="Search keywords: EMI formula, debt consolidation, DTI ratio..." required>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 16: Newsletter Subscription
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="blogNewsletter">
+      <div class="container container-narrow text-center" data-aos="fade-up">
+        <div class="section-badge mb-2">Stay Ahead</div>
+        <h2 class="text-white mb-2">Subscribe to the Credora Dispatch</h2>
+        <p class="text-slate-400 text-sm mb-4">
+          Join 28,000+ borrowers and finance professionals receiving our monthly curated research bulletin. Zero spam, unsubscribe anytime.
+        </p>
+        <form class="d-flex justify-center gap-2" onsubmit="event.preventDefault(); showToast('Thank you for subscribing (Demo)!', 'success');">
+          <input type="email" class="form-control" placeholder="Enter your work email" required style="max-width:360px;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 17: FAQ Accordion
+         ========================================================================= -->
+    <section class="section" id="blogFaq">
+      <div class="container container-narrow">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Editorial Policy</div>
+          <h2 class="section-title">Insights FAQ</h2>
+        </div>
+
+        <div class="accordion" id="blogAccordion" data-aos="fade-up">
+          <div class="accordion-item active">
+            <button class="accordion-header" type="button">
+              <span>Do these articles provide personalized financial advice?</span>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p class="text-sm text-slate-300">
+                No. All publications on Credora Finance are purely educational and analytical simulations. Readers should consult with a certified financial planner (CFP) or legal counsel for individualized financial planning.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span>Can I republish Credora financial calculation formulas?</span>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p class="text-sm text-slate-300">
+                Yes. Our mathematical formulations are standard mathematical reducing-balance expressions recognized globally across financial engineering institutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 18: Final Call to Action
+         ========================================================================= -->
+    <section class="section section-dark-alt text-center" id="blogFinalCta">
+      <div class="container" data-aos="zoom-in">
+        <div class="section-badge mb-2">Take Action</div>
+        <h2 class="text-white mb-3">Put Financial Literacy into Practice</h2>
+        <p class="section-subtitle mx-auto mb-4">
+          Calculate your own reducing-balance repayment schedules or test our multi-step demo loan application wizard.
+        </p>
+        <div class="d-flex justify-center gap-3">
+          <a href="404.html" class="btn btn-primary btn-lg">Open EMI Calculator <i class="fas fa-calculator"></i></a>
+          <a href="404.html" class="btn btn-secondary btn-lg">Apply Demo Loan</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <!-- Site Footer (Matching Reference) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & Social Circles -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            Compassionate veterinary medicine, preventive health examinations, and lifelong wellness for dogs and cats.
+          </p>
+          <div class="footer-social-circles">
+            <a href="404.html" class="social-circle-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="index.html"><span class="link-arrow">&gt;</span> Home</a></li>
+            <li><a href="services.html"><span class="link-arrow">&gt;</span> Services</a></li>
+            <li><a href="about.html"><span class="link-arrow">&gt;</span> About</a></li>
+            <li><a href="blog.html"><span class="link-arrow">&gt;</span> Blog</a></li>
+            <li><a href="contact.html"><span class="link-arrow">&gt;</span> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Portal Access -->
+        <div class="footer-col">
+          <h4 class="footer-title">Portal Access</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="login.html"><span class="link-arrow">&gt;</span> Staff Login</a></li>
+            <li><a href="signup.html"><span class="link-arrow">&gt;</span> Staff Sign Up</a></li>
+            <li><a href="admin-dashboard.html"><span class="link-arrow">&gt;</span> Admin Dashboard</a></li>
+            <li><a href="customer-dashboard.html"><span class="link-arrow">&gt;</span> Vet Workspace</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Client Portal (404)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Clinic Hours (Demo) -->
+        <div class="footer-col footer-col-hours">
+          <h4 class="footer-title">Clinic Hours (Demo)</h4>
+          <div class="footer-title-line"></div>
+          <div class="footer-hours-card">
+            <div class="hours-row">
+              <span class="hours-day">Mon – Fri:</span>
+              <strong class="hours-time">8:00 AM – 7:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday:</span>
+              <strong class="hours-time">9:00 AM – 4:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday:</span>
+              <strong class="hours-time">Emergency / Closed</strong>
+            </div>
+          </div>
+          <div class="footer-location-tag">
+            <i class="fas fa-location-dot"></i>
+            <span>Stackly, Tamil Nadu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Stackly. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Architecture</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>

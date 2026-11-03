@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Financial Workspace — Credora Finance</title>
+  <meta name="description" content="Personal financial workspace for active borrowers to manage repayments, view payment calendars, track loan balances, and download demo statements.">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/dashboard.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- =========================================================================
+         CUSTOMER SIDEBAR
+         ========================================================================= -->
+    <aside class="dashboard-sidebar" id="customerSidebar" style="background:#081022;">
+      <div class="sidebar-brand">
+        <a href="customer-dashboard.html" class="brand-logo" aria-label="Customer Dashboard">
+          <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+        </a>
+      </div>
+
+      <div class="sidebar-user-card">
+        <div class="sidebar-user-info">
+          <h5 class="text-white user-display-name">Alex Morgan</h5>
+          <span class="user-display-email text-xs text-emerald" style="display:block; word-break:break-all;">customer@credora.com</span>
+          <span class="text-xs text-slate-400">KYC Verified Borrower</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Customer Navigation">
+        <span class="nav-section-title">My Workspace</span>
+
+        <a href="#cust-overview" class="sidebar-link active" data-target-view="cust-overview">
+          <i class="fas fa-gauge-high"></i>
+          <span>Dashboard Overview</span>
+        </a>
+
+        <a href="#cust-loans" class="sidebar-link" data-target-view="cust-loans">
+          <i class="fas fa-wallet"></i>
+          <span>My Loan Facilities</span>
+        </a>
+
+        <a href="#cust-repayments" class="sidebar-link" data-target-view="cust-repayments">
+          <i class="fas fa-calendar-check"></i>
+          <span>EMI & Repayments</span>
+        </a>
+
+        <a href="#cust-applications" class="sidebar-link" data-target-view="cust-applications">
+          <i class="fas fa-file-contract"></i>
+          <span>Loan Applications</span>
+          <span class="sidebar-badge">1</span>
+        </a>
+
+        <a href="#cust-profile" class="sidebar-link" data-target-view="cust-profile">
+          <i class="fas fa-user-gear"></i>
+          <span>Profile & Statements</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-link btn-logout" style="color:var(--color-danger);">
+          <i class="fas fa-power-off"></i> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+         CUSTOMER MAIN CONTAINER
+         ========================================================================= -->
+    <div class="dashboard-main">
+
+      <!-- Topbar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <div class="sidebar-toggle-btn" role="button" aria-label="Toggle Navigation Sidebar">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="topbar-title-block">
+            <h4 class="topbar-title text-white mb-0">Financial Workspace</h4>
+            <span class="topbar-subtitle text-xs text-slate-400">#CRD-CUST-4819 &bull; <span class="text-emerald">Active Facility</span></span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Quick Action: Apply Demo -->
+          <a href="404.html" class="btn btn-primary btn-sm topbar-apply-btn">
+            <i class="fas fa-plus"></i> <span class="btn-text-full">Apply for New Loan</span><span class="btn-text-mobile">Apply</span>
+          </a>
+          <a href="index.html" class="btn btn-secondary btn-sm topbar-home-btn" title="Public Site">
+            <i class="fas fa-house"></i> <span class="btn-text-full">Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Customer Content Area -->
+      <div class="dashboard-content">
+
+        <!-- =====================================================================
+             VIEW 1: PERSONAL WORKSPACE OVERVIEW & FINANCIAL METRICS
+             ===================================================================== -->
+        <section class="dashboard-section active" id="cust-overview">
+          <!-- SECTION 1: Welcome Header -->
+          <div class="welcome-header-card mb-4 pb-2">
+            <div class="welcome-header-info">
+              <h2 class="welcome-title text-white mb-1">Welcome, <span class="welcome-user-name">Alex Morgan</span></h2>
+              <p class="welcome-subtitle text-xs text-slate-400 mb-0">Signed in as <strong class="welcome-user-email text-emerald">customer@credora.com</strong> &bull; Account in good standing.</p>
+            </div>
+            <!-- SECTION 20: Quick Actions -->
+            <div class="welcome-header-actions">
+              <a href="404.html" class="btn btn-sm btn-outline-emerald">
+                <i class="fas fa-forward"></i> Make Early Payoff
+              </a>
+              <a href="404.html" class="btn btn-sm btn-secondary">
+                <i class="fas fa-file-arrow-down"></i> Tax Certificate
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 2: Financial Overview Metrics -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Total Borrowed</span>
+                <div class="kpi-icon-wrap"><i class="fas fa-wallet"></i></div>
+              </div>
+              <div class="kpi-value">$30,000</div>
+              <div class="kpi-meta"><i class="fas fa-check"></i> Sanctioned Oct 2024</div>
+            </div>
+
+            <div class="kpi-card" style="border-color:rgba(16,185,129,0.3);">
+              <div class="kpi-header">
+                <span class="kpi-title">Principal Outstanding</span>
+                <div class="kpi-icon-wrap"><i class="fas fa-scale-balanced"></i></div>
+              </div>
+              <div class="kpi-value text-emerald">$12,450</div>
+              <div class="kpi-meta positive"><i class="fas fa-arrow-down"></i> 58.5% paid off</div>
+            </div>
+
+            <div class="kpi-card" style="border-color:rgba(59,130,246,0.3);">
+              <div class="kpi-header">
+                <span class="kpi-title">Next Monthly EMI</span>
+                <div class="kpi-icon-wrap" style="color:var(--color-info); background:var(--color-info-bg);"><i class="fas fa-calendar-day"></i></div>
+              </div>
+              <div class="kpi-value text-info">$684.50</div>
+              <div class="kpi-meta"><i class="fas fa-clock"></i> Due in 12 days (Dec 15)</div>
+            </div>
+
+            <div class="kpi-card" style="border-color:rgba(16,185,129,0.3);">
+              <div class="kpi-header">
+                <span class="kpi-title">Credora Health Tier</span>
+                <div class="kpi-icon-wrap"><i class="fas fa-shield-heart"></i></div>
+              </div>
+              <div class="kpi-value text-emerald">Tier A</div>
+              <div class="kpi-meta positive"><i class="fas fa-award"></i> Eligible for -0.5% rate discount</div>
+            </div>
+          </div>
+          <!-- SECTION 14 & 15: Notifications & Personalized Financial Insights -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 14: Notifications Panel -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-bell text-emerald mr-2"></i> Account Notifications</h4>
+              <div class="d-flex" style="flex-direction:column; gap:0.6rem;">
+                <div class="p-2 text-xs" style="background:rgba(16,185,129,0.06); border-radius:8px;">
+                  <strong class="text-white d-block">Auto-Debit Reminder</strong>
+                  <span class="text-slate-400">Monthly EMI of $684.50 will be debited on Dec 15 from Chase Checking ending in 4109.</span>
+                </div>
+                <div class="p-2 text-xs" style="background:rgba(59,130,246,0.06); border-radius:8px;">
+                  <strong class="text-white d-block">Tier A Rate Discount Active</strong>
+                  <span class="text-slate-400">Congratulations! 12 consecutive on-time payments made.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 15: Financial Insights Personalized -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-lightbulb text-warning mr-2"></i> Smart Payoff Suggestion</h4>
+              <div class="p-3 my-2" style="background:rgba(245,158,11,0.08); border-radius:8px; border-left:3px solid var(--color-warning);">
+                <p class="text-xs text-slate-300 mb-0">
+                  <strong>Accelerated Payoff Tip:</strong> Contributing an extra <strong>$50.00</strong> toward principal each month will shave <strong>3 months</strong> off your remaining tenure and save <strong>$184.20</strong> in future interest charges.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 2: ACTIVE LOAN FACILITIES & AMORTIZATION TERMS
+             ===================================================================== -->
+        <section class="dashboard-section" id="cust-loans">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">My Active Loan Facilities</h2>
+              <p class="text-xs text-slate-400">Disbursed credit lines, remaining balances, and amortization terms.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Request Limit Expansion
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 3: Active Loan Summary -->
+          <div class="mb-4">
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-hand-holding-dollar text-emerald mr-2"></i> Active Facility #LN-9041</h4>
+                <span class="badge badge-success">Performing</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3">Personal Growth Loan • 48 Month Tenure • 8.5% Reducing APR</p>
+              
+              <!-- SECTION 9: Principal Outstanding Widget -->
+              <div class="mb-3">
+                <div class="d-flex justify-between text-xs text-slate-300 mb-1">
+                  <span>Repaid: $17,550</span>
+                  <span class="text-emerald font-bold">Remaining: $12,450 (41.5%)</span>
+                </div>
+                <div style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px;">
+                  <div style="width:58.5%; height:100%; background:var(--color-primary); border-radius:4px;"></div>
+                </div>
+              </div>
+              <div class="d-flex justify-between text-xs text-slate-400">
+                <span>Remaining Tenure: 20 Months</span>
+                <span>Auto-Debit: Enabled (Chase ACH)</span>
+              </div>
+            </div>
+          </div>
+          <!-- SECTION 10 & 11: Interest Summary & Loan Details Panel -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 10: Interest Summary -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-piggy-bank text-emerald mr-2"></i> Interest & Prepayment Savings</h4>
+              <div class="d-flex justify-between text-xs py-1" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="text-slate-400">Total Interest Scheduled:</span>
+                <strong class="text-white">$4,856.00</strong>
+              </div>
+              <div class="d-flex justify-between text-xs py-1" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="text-slate-400">Interest Paid to Date:</span>
+                <strong class="text-info">$2,142.10</strong>
+              </div>
+              <div class="d-flex justify-between text-xs py-1">
+                <span class="text-slate-400">Interest Saved via Early Principal:</span>
+                <strong class="text-emerald">+$420.50 (Saved)</strong>
+              </div>
+            </div>
+
+            <!-- SECTION 11: Loan Details -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-circle-info text-emerald mr-2"></i> Contract Specifications</h4>
+              <div class="d-flex justify-between text-xs py-1" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="text-slate-400">Annual Interest Rate:</span>
+                <strong class="text-emerald">8.50% Fixed p.a.</strong>
+              </div>
+              <div class="d-flex justify-between text-xs py-1" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="text-slate-400">Sanction / Origination Date:</span>
+                <strong class="text-white">15 Oct 2024</strong>
+              </div>
+              <div class="d-flex justify-between text-xs py-1">
+                <span class="text-slate-400">Maturity Date:</span>
+                <strong class="text-white">15 Oct 2028</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 3: EMI PAYMENTS, REPAYMENT SCHEDULE & CALENDAR
+             ===================================================================== -->
+        <section class="dashboard-section" id="cust-repayments">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">EMI Payments & Repayment Calendar</h2>
+              <p class="text-xs text-slate-400">Upcoming installments, settlement history, and monthly billing calendar.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-credit-card"></i> Pay Monthly EMI
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 6 & 7: EMI Repayment Overview & Upcoming Payment Card -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 6: EMI Repayment Overview -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-receipt text-emerald mr-2"></i> Monthly EMI Breakdown</h4>
+              <p class="text-xs text-slate-400 mb-3">Total Monthly Installment: <strong>$684.50</strong></p>
+              <div class="grid-2 my-2">
+                <div class="p-2" style="background:rgba(16,185,129,0.1); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">Principal Component</span>
+                  <strong class="text-emerald text-lg">$512.20 (74.8%)</strong>
+                </div>
+                <div class="p-2" style="background:rgba(59,130,246,0.1); border-radius:8px;">
+                  <span class="text-xs text-slate-400 d-block">Interest Component</span>
+                  <strong class="text-info text-lg">$172.30 (25.2%)</strong>
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 mb-0">Notice how interest drops every month under reducing-balance math.</p>
+            </div>
+
+            <!-- SECTION 7: Upcoming Payment Card -->
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-calendar-check text-emerald mr-2"></i> Next Due Payment</h4>
+                <span class="badge badge-success">Auto-Debit Armed</span>
+              </div>
+              <div class="d-flex justify-between align-center my-3 p-3" style="background:rgba(11,19,43,0.7); border-radius:8px;">
+                <div>
+                  <span class="text-xs text-slate-400 d-block">Scheduled Deduction</span>
+                  <div class="text-white text-xl font-bold">$684.50</div>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 d-block">Due Date</span>
+                  <strong class="text-emerald">15 Dec 2026</strong>
+                </div>
+              </div>
+              <a href="404.html" class="btn btn-sm btn-outline-emerald w-100">
+                <i class="fas fa-bolt"></i> Pay Now in Advance (Demo)
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 8: Repayment History Table -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="d-flex justify-between align-center mb-3" style="flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 class="text-white"><i class="fas fa-list-check text-emerald mr-2"></i> Repayment History</h3>
+                <p class="text-xs text-slate-400">All historical monthly payments with detailed principal and interest allocations.</p>
+              </div>
+              <span class="badge badge-info">Zero Overdue Records</span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date Paid</th>
+                    <th>Reference</th>
+                    <th>Total Paid</th>
+                    <th>Principal Paid</th>
+                    <th>Interest Paid</th>
+                    <th>Status</th>
+                    <th>Receipt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>15 Nov 2026</td>
+                    <td class="font-bold text-white">#TRX-94811</td>
+                    <td>$684.50</td>
+                    <td class="text-emerald font-bold">$515.80</td>
+                    <td class="text-info">$168.70</td>
+                    <td><span class="badge badge-success">Cleared</span></td>
+                    <td><a href="404.html" class="btn btn-sm btn-secondary"><i class="fas fa-receipt"></i> View</a></td>
+                  </tr>
+                  <tr>
+                    <td>15 Oct 2026</td>
+                    <td class="font-bold text-white">#TRX-94810</td>
+                    <td>$684.50</td>
+                    <td class="text-emerald font-bold">$512.20</td>
+                    <td class="text-info">$172.30</td>
+                    <td><span class="badge badge-success">Cleared</span></td>
+                    <td><a href="404.html" class="btn btn-sm btn-secondary"><i class="fas fa-receipt"></i> View</a></td>
+                  </tr>
+                  <tr>
+                    <td>15 Sep 2026</td>
+                    <td class="font-bold text-white">#TRX-94809</td>
+                    <td>$684.50</td>
+                    <td class="text-emerald font-bold">$508.62</td>
+                    <td class="text-info">$175.88</td>
+                    <td><span class="badge badge-success">Cleared</span></td>
+                    <td><a href="404.html" class="btn btn-sm btn-secondary"><i class="fas fa-receipt"></i> View</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- SECTION 12: Payment Calendar Widget -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="d-flex justify-between align-center mb-3" style="flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 class="text-white"><i class="fas fa-calendar-days text-emerald mr-2"></i> Payment Calendar (December 2026)</h3>
+                <p class="text-xs text-slate-400">Scheduled EMI debit days highlighted in emerald.</p>
+              </div>
+              <span class="badge badge-success">Auto-Debit Scheduled: 15 Dec</span>
+            </div>
+
+            <!-- Interactive Calendar Grid Container -->
+            <div class="payment-calendar-grid" id="customerPaymentCalendar">
+              <!-- Dynamically populated via assets/dashboard.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 4: APPLICATION TRACKER & PROGRESS PIPELINE
+             ===================================================================== -->
+        <section class="dashboard-section" id="cust-applications">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">Loan Application Tracker</h2>
+              <p class="text-xs text-slate-400">Track real-time underwriting milestones and document review stages.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> New Application
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 4 & 5: Loan Application Status & Progress Tracker -->
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-file-contract text-emerald mr-2"></i> Application #CRD-APP-90124</h4>
+                <span class="badge badge-warning">Under Review</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3">Higher Education Loan ($18,000) • Submitted 2 hours ago</p>
+
+              <!-- SECTION 5: Application Progress Tracker Stepper -->
+              <div class="d-flex justify-between text-xs text-center py-2" style="background:rgba(11,19,43,0.6); border-radius:8px;">
+                <div>
+                  <i class="fas fa-check-circle text-emerald d-block mb-1"></i>
+                  <span class="text-white">Submitted</span>
+                </div>
+                <div>
+                  <i class="fas fa-check-circle text-emerald d-block mb-1"></i>
+                  <span class="text-white">Verification</span>
+                </div>
+                <div>
+                  <i class="fas fa-spinner fa-spin text-warning d-block mb-1"></i>
+                  <span class="text-warning font-bold">Underwriting</span>
+                </div>
+                <div>
+                  <i class="fas fa-circle text-slate-600 d-block mb-1"></i>
+                  <span class="text-slate-500">Offer</span>
+                </div>
+                <div>
+                  <i class="fas fa-circle text-slate-600 d-block mb-1"></i>
+                  <span class="text-slate-500">Disbursed</span>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             VIEW 5: PROFILE, STATEMENTS & COMMUNICATIONS
+             ===================================================================== -->
+        <section class="dashboard-section" id="cust-profile">
+          <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 class="text-white">Profile, Statements & Messages</h2>
+              <p class="text-xs text-slate-400">Borrower profile, downloadable statements, and secure communications desk.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="404.html" class="btn btn-secondary btn-sm">
+                <i class="fas fa-user-check"></i> Verified Profile
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 16: Profile and Personal Details -->
+          <div class="card card-glass p-4 mb-4">
+            <h4 class="text-white mb-3"><i class="fas fa-id-card text-emerald mr-2"></i> Profile & Linked Accounts</h4>
+            <div class="grid-3 text-xs">
+              <div class="p-2" style="background:rgba(11,19,43,0.5); border-radius:8px;">
+                <span class="text-slate-500 d-block">Full Legal Name</span>
+                <strong class="text-white">Alex Morgan</strong>
+              </div>
+              <div class="p-2" style="background:rgba(11,19,43,0.5); border-radius:8px;">
+                <span class="text-slate-500 d-block">Registered Email</span>
+                <strong class="text-white">alex.morgan@credora-demo.com</strong>
+              </div>
+              <div class="p-2" style="background:rgba(11,19,43,0.5); border-radius:8px;">
+                <span class="text-slate-500 d-block">Linked Disbursement Bank</span>
+                <strong class="text-emerald">Chase NA •••• 4109 (Verified ACH)</strong>
+              </div>
+            </div>
+          </div>
+          <!-- SECTION 13: Downloadable Demo Statements -->
+          <div class="card card-glass p-4 mb-4">
+            <div class="d-flex justify-between align-center mb-3">
+              <div>
+                <h3 class="text-white"><i class="fas fa-file-invoice text-emerald mr-2"></i> Account Statements & Tax Certificates</h3>
+                <p class="text-xs text-slate-400">Instant PDF download of verified monthly and annual statements.</p>
+              </div>
+            </div>
+
+            <div class="grid-3">
+              <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:8px;">
+                <span class="text-xs text-slate-400 d-block">Q3 2026 Statement</span>
+                <strong class="text-white text-sm d-block my-1">Quarterly Amortization Ledger</strong>
+                <a href="404.html" class="btn btn-sm btn-outline-emerald">
+                  <i class="fas fa-file-pdf"></i> Preview / Download
+                </a>
+              </div>
+
+              <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:8px;">
+                <span class="text-xs text-slate-400 d-block">Q2 2026 Statement</span>
+                <strong class="text-white text-sm d-block my-1">Quarterly Amortization Ledger</strong>
+                <a href="404.html" class="btn btn-sm btn-outline-emerald">
+                  <i class="fas fa-file-pdf"></i> Preview / Download
+                </a>
+              </div>
+
+              <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:8px;">
+                <span class="text-xs text-slate-400 d-block">Annual Tax Cert</span>
+                <strong class="text-white text-sm d-block my-1">2025 Interest Certificate</strong>
+                <a href="404.html" class="btn btn-sm btn-outline-emerald">
+                  <i class="fas fa-file-pdf"></i> Preview / Download
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- SECTION 17 & 18: Support Center & Direct Messages -->
+          <div class="grid-2 mb-4">
+            <!-- SECTION 17: Support Center -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-headset text-emerald mr-2"></i> Dedicated Loan Relationship Officer</h4>
+              <p class="text-xs text-slate-400 mb-2">Have a question about restructuring or prepayment? Contact your assigned loan manager:</p>
+              <div class="p-2 mb-2 text-xs" style="background:rgba(11,19,43,0.6); border-radius:8px;">
+                <strong class="text-white">Elena Gomez (Senior Underwriter)</strong><br>
+                <span class="text-emerald">elena.gomez@credora-demo.com</span>
+              </div>
+            </div>
+
+            <!-- SECTION 18: Messages Thread Demo -->
+            <div class="card card-glass p-3">
+              <h4 class="text-white mb-2"><i class="fas fa-comment-dots text-emerald mr-2"></i> Support Conversation</h4>
+              <div class="p-2 mb-2 text-xs" style="background:rgba(16,185,129,0.06); border-radius:8px;">
+                <span class="text-slate-400 d-block font-bold">Elena Gomez:</span>
+                "Hello Alex, your auto-debit discount of 0.25% has been applied to facility #LN-9041."
+              </div>
+              <a href="404.html" class="btn btn-sm btn-secondary w-100">
+                <i class="fas fa-reply"></i> Reply to Loan Officer
+              </a>
+            </div>
+          </div>
+          <!-- SECTION 19: Customer Email Center -->
+          <div class="card card-glass p-4 mb-4" id="custEmailCenterSection">
+            <h3 class="text-white mb-3"><i class="fas fa-envelope-open-text text-emerald mr-2"></i> Borrower Notification Inbox</h3>
+            <div class="email-center-container">
+              
+              <!-- Left: Folders -->
+              <div class="email-folders">
+                <button type="button" class="email-folder-btn active" data-folder="Inbox">
+                  <i class="fas fa-inbox"></i> Inbox <span class="badge-count">2</span>
+                </button>
+                <button type="button" class="email-folder-btn" data-folder="Receipts">
+                  <i class="fas fa-receipt"></i> Receipts <span class="badge-count">3</span>
+                </button>
+                <button type="button" class="email-folder-btn" data-folder="Statements">
+                  <i class="fas fa-file-pdf"></i> Statements
+                </button>
+              </div>
+
+              <!-- Middle: Email List -->
+              <div class="email-list-column">
+                <div class="email-search-bar">
+                  <input type="text" placeholder="Search my messages...">
+                </div>
+                <div class="email-items-scroll">
+                  <div class="email-item selected" data-sender="Credora Originations" data-subject="Sanction Letter: Personal Loan #LN-9041" data-time="Oct 15" data-body="Congratulations Alex, your Personal Growth Loan of $30,000 has been sanctioned at 8.5% p.a. reducing balance for 48 months.">
+                    <div class="email-item-header">
+                      <span class="email-sender">Credora Originations</span>
+                      <span class="email-time">Oct 15</span>
+                    </div>
+                    <div class="email-subject">Sanction Letter: Personal Loan #LN-9041</div>
+                    <div class="email-preview">Congratulations Alex, your Personal Growth Loan of $30,000 has been sanctioned...</div>
+                  </div>
+
+                  <div class="email-item" data-sender="Credora Servicing" data-subject="Payment Receipt #TRX-94811 Cleared" data-time="Nov 15" data-body="We have received your scheduled EMI payment of $684.50. Principal paid: $515.80, Interest paid: $168.70. Outstanding balance updated.">
+                    <div class="email-item-header">
+                      <span class="email-sender">Credora Servicing</span>
+                      <span class="email-time">Nov 15</span>
+                    </div>
+                    <div class="email-subject">Payment Receipt #TRX-94811 Cleared</div>
+                    <div class="email-preview">We have received your scheduled EMI payment of $684.50...</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Email Reading Pane -->
+              <div class="email-preview-pane">
+                <div class="email-detail-header">
+                  <h4 class="email-detail-title text-white">Sanction Letter: Personal Loan #LN-9041</h4>
+                  <div class="email-detail-meta">
+                    <span class="email-detail-sender">From: Credora Originations</span>
+                    <span class="email-detail-time">Oct 15, 2024</span>
+                  </div>
+                </div>
+                <div class="email-detail-body">
+                  <p>
+                    Congratulations Alex! Your demonstration Personal Growth Loan facility (#LN-9041) of <strong>$30,000.00</strong> has cleared underwriting assessment at a fixed reducing-balance rate of <strong>8.50% p.a.</strong>
+                  </p>
+                  <p class="mt-2">
+                    Your monthly installment is fixed at <strong>$684.50</strong> for 48 months. With zero prepayment penalty clauses, you may settle any portion of the principal at any time without fee.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statement Preview Demo Modal -->
+  <div class="modal-backdrop" id="statementPreviewModal">
+    <div class="modal-dialog">
+      <div class="modal-close-btn" role="button" aria-label="Close dialog"><i class="fas fa-times"></i></div>
+      <span class="badge badge-info mb-2">DEMO STATEMENT PREVIEW</span>
+      <h3 class="text-white mb-1">Account Statement (<span id="statementModalPeriod">Q3 2026</span>)</h3>
+      <p class="text-xs text-slate-400 mb-4">Official stamped electronic record for Facility #LN-9041.</p>
+
+      <div class="p-3 mb-4" style="background:#070D1E; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.08); font-size:0.85rem;">
+        <div class="d-flex justify-between py-1 border-bottom">
+          <span class="text-slate-400">Borrower:</span>
+          <strong class="text-white">Alex Morgan (CUST-4819)</strong>
+        </div>
+        <div class="d-flex justify-between py-1 border-bottom">
+          <span class="text-slate-400">Period Opening Balance:</span>
+          <strong class="text-white">$14,510.20</strong>
+        </div>
+        <div class="d-flex justify-between py-1 border-bottom">
+          <span class="text-slate-400">Principal Cleared in Period:</span>
+          <strong class="text-emerald">$2,060.20</strong>
+        </div>
+        <div class="d-flex justify-between py-1">
+          <span class="text-slate-400">Closing Balance:</span>
+          <strong class="text-emerald font-bold">$12,450.00</strong>
+        </div>
+      </div>
+
+      <div class="d-flex justify-between gap-3">
+        <button type="button" class="btn btn-secondary w-100 modal-close-btn-action" onclick="document.getElementById('statementPreviewModal').style.display='none';">Close</button>
+        <a href="404.html" class="btn btn-primary w-100" id="btnPrintStatementDemo">
+          <i class="fas fa-print"></i> Export PDF (Demo)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/dashboard.js"></script>
+</body>
+</html>

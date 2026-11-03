@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Demo Account — Credora Finance</title>
+  <meta name="description" content="Register for a demonstration account on Credora Finance as either an Administrator or a Borrower Customer.">
+  <meta name="keywords" content="fintech signup, loan platform registration, customer registration, admin account demo">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 50% 25%, rgba(16,185,129,0.12) 0%, #070D1E 100%) fixed;">
+
+  <!-- Header Minimal -->
+  <header style="padding: 1.5rem 0;">
+    <div class="container d-flex justify-between align-center">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+      </a>
+      <a href="login.html" class="btn btn-secondary btn-sm"><i class="fas fa-lock"></i> <span class="hide-on-mobile">Existing User? </span>Sign In</a>
+    </div>
+  </header>
+
+  <!-- Signup Main Card -->
+  <main class="container" style="max-width: 580px; margin: 1.5rem auto 3rem;">
+    <div class="card card-glass p-4" style="border: 1px solid rgba(16,185,129,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+      
+      <div class="text-center mb-4">
+        <div class="pulse-dot mx-auto mb-2"></div>
+        <h2 class="text-white mb-1">Create Demo Account</h2>
+        <p class="text-xs text-slate-400">Register your account to access our financial platform.</p>
+      </div>
+
+      <form id="signupForm" novalidate>
+        
+        <!-- Full Name -->
+        <div class="form-group mb-3">
+          <label class="form-label" for="signupName">Full Legal Name *</label>
+          <div class="input-with-icon">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" id="signupName" class="form-control" placeholder="Jane Doe" required>
+          </div>
+          <div class="form-error"></div>
+        </div>
+
+        <!-- Email & Phone Grid -->
+        <div class="grid-2 mb-3">
+          <div class="form-group mb-0">
+            <label class="form-label" for="signupEmail">Email Address *</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope input-icon"></i>
+              <input type="email" id="signupEmail" class="form-control" placeholder="jane.doe@example.com" required>
+            </div>
+            <div class="form-error"></div>
+          </div>
+
+          <div class="form-group mb-0">
+            <label class="form-label" for="signupPhone">Mobile Phone *</label>
+            <div class="input-with-icon">
+              <i class="fas fa-phone input-icon"></i>
+              <input type="tel" id="signupPhone" class="form-control" placeholder="+1 (555) 012-3456" required>
+            </div>
+            <div class="form-error"></div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mb-3">
+          <label class="form-label" for="signupPassword">Password *</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" id="signupPassword" class="form-control" placeholder="Create a strong password" required>
+          </div>
+          
+          <!-- Live Password Strength Indicator -->
+          <div class="mt-2">
+            <div class="d-flex justify-between text-xs mb-1">
+              <span class="text-slate-400">Password Strength:</span>
+              <span id="passwordStrengthLabel" class="font-bold text-danger">Too Weak</span>
+            </div>
+            <div style="height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+              <div id="passwordStrengthBar" style="width: 0%; height: 100%; background: #EF4444; transition: width 0.3s ease, background-color 0.3s ease;"></div>
+            </div>
+          </div>
+          <small class="text-xs text-slate-500 d-block mt-1">
+            Must contain 8+ characters, uppercase, lowercase, number, and special symbol (!@#$%^&*).
+          </small>
+          <div class="form-error"></div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group mb-4">
+          <label class="form-label" for="signupConfirmPassword">Confirm Password *</label>
+          <div class="input-with-icon">
+            <i class="fas fa-check-double input-icon"></i>
+            <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Repeat your password" required>
+          </div>
+          <div class="form-error"></div>
+        </div>
+
+        <!-- Submit Button (Functional Exception to CTA Rule) -->
+        <button type="submit" class="btn btn-primary w-100 btn-lg mb-3" id="btnSignupSubmit">
+          <i class="fas fa-user-plus"></i> Sign Up
+        </button>
+
+        <div class="text-center pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+          <span class="text-xs text-slate-400">Already have a demo profile?</span>
+          <a href="login.html" class="text-xs text-emerald font-bold ml-1">Sign In &rarr;</a>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Footer Minimal -->
+  <footer style="padding: 1.5rem 0; border-top: var(--border-glass); text-align: center; font-size: 0.8rem; color: var(--color-slate-500);">
+    <div class="container">
+      &copy; 2026 Credora Finance Systems. All rights reserved. (Demonstration Prototype)
+    </div>
+  </footer>
+
+  <script src="assets/validation.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/auth.js"></script>
+</body>
+</html>

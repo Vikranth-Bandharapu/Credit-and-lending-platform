@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products & Services — Credora Finance</title>
+  <meta name="description" content="Explore Credora Finance's comprehensive suite of fictional loan products, transparent credit structures, and intelligent portfolio servicing.">
+  <meta name="keywords" content="personal loans, commercial loans, SME credit, education loans, working capital, loan eligibility, credit assessment, EMI calculation">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Libraries (AOS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <div class="nav-actions-mobile">
+          <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+        <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- =========================================================================
+         SECTION 1: Services Hero
+         ========================================================================= -->
+    <section class="section" style="padding: 4.5rem 0 3.5rem; background: radial-gradient(circle at 80% 20%, rgba(16,185,129,0.12) 0%, #070D1E 100%);" id="servicesHero">
+      <div class="container text-center" data-aos="fade-up">
+        <div class="section-badge">Loan Solutions & Architecture</div>
+        <h1 class="text-white mb-3">Transparent Capital for <span class="text-gradient">Every Ambition</span></h1>
+        <p class="section-subtitle mx-auto mb-4">
+          Discover a complete ecosystem of structured credit facilities. Engineered with reducing-balance calculations, transparent disclosures, and flexible repayment terms.
+        </p>
+        <div class="d-flex justify-center gap-3">
+          <a href="404.html" class="btn btn-primary btn-lg">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+          <a href="404.html" class="btn btn-secondary btn-lg">Check Eligibility</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: Platform Overview
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="servicesPlatformOverview">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <div class="section-badge">Core Capabilities</div>
+            <h2 class="section-title">The Foundation of Modern Lending</h2>
+            <p class="mb-3">
+              Credora Finance operates on a modular lending stack. Each product category leverages standardized financial evaluation engines, ensuring fair assessment, predictable amortization schedules, and borrower protections.
+            </p>
+            <div class="d-flex" style="flex-direction:column; gap:0.75rem;">
+              <div class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check-circle text-emerald"></i> Real-time underwriting risk telemetry
+              </div>
+              <div class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check-circle text-emerald"></i> Granular principal vs interest reporting
+              </div>
+              <div class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check-circle text-emerald"></i> Zero penalties for accelerated loan prepayment
+              </div>
+            </div>
+          </div>
+          <div class="card card-glass" data-aos="fade-left">
+            <img src="assets/analytics-mockup.webp" alt="Lending Architecture Telemetry" style="border-radius:var(--radius-md); width:100%; height:260px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: Personal Loans Deep-Dive
+         ========================================================================= -->
+    <section class="section" id="personalLoans">
+      <div class="container">
+        <div class="split-section">
+          <div class="card card-glass" data-aos="fade-right">
+            <img src="assets/personal-loan.webp" alt="Personal Finance Solutions" style="border-radius:var(--radius-md); width:100%; height:280px; object-fit:cover; margin-bottom:1.5rem;">
+            <div class="d-flex justify-between text-sm py-2" style="border-top:1px solid rgba(255,255,255,0.08);">
+              <span class="text-slate-400">Illustrative APR</span>
+              <span class="text-emerald font-bold">7.9% – 12.5%</span>
+            </div>
+            <div class="d-flex justify-between text-sm py-2" style="border-top:1px solid rgba(255,255,255,0.08);">
+              <span class="text-slate-400">Tenure Options</span>
+              <span class="text-white font-bold">12 to 60 Months</span>
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <span class="badge badge-success mb-2">Category 01</span>
+            <h2 class="section-title">Personal Growth Loans</h2>
+            <p class="mb-3">
+              Unsecured personal financing designed to help individuals consolidate high-interest credit cards, fund home renovations, or finance major life transitions without pledge of collateral.
+            </p>
+            <p class="text-muted mb-4">
+              With fixed monthly installments computed via reducing balance, your monthly commitment stays constant while your principal steadily reduces.
+            </p>
+            <a href="404.html" class="btn btn-primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: Business Loans
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="businessLoans">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <span class="badge badge-info mb-2">Category 02</span>
+            <h2 class="section-title">Commercial & SME Loans</h2>
+            <p class="mb-3">
+              Tailored liquidity facilities for registered businesses, designed to support capital expenditures, equipment acquisitions, or temporary payroll smoothing during seasonal expansions.
+            </p>
+            <div class="grid-2 mb-4">
+              <div class="p-3" style="background:rgba(15,26,54,0.6); border-radius:var(--radius-md);">
+                <span class="text-xs text-slate-400 d-block">Facility Size</span>
+                <h4 class="text-white">$10,000 – $500,000</h4>
+              </div>
+              <div class="p-3" style="background:rgba(15,26,54,0.6); border-radius:var(--radius-md);">
+                <span class="text-xs text-slate-400 d-block">Amortization</span>
+                <h4 class="text-emerald">Flexible Monthly / Qtr</h4>
+              </div>
+            </div>
+            <a href="404.html" class="btn btn-primary">Explore Solutions</a>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-left">
+            <img src="assets/business-loan.webp" alt="Small Business Owner" style="border-radius:var(--radius-md); width:100%; height:280px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: Education Loans
+         ========================================================================= -->
+    <section class="section" id="educationLoans">
+      <div class="container">
+        <div class="split-section">
+          <div class="card card-glass" data-aos="fade-right">
+            <img src="assets/education-loan.webp" alt="Student Studying with Laptop" style="border-radius:var(--radius-md); width:100%; height:280px; object-fit:cover; margin-bottom:1.5rem;">
+            <div class="d-flex justify-between text-sm py-2" style="border-top:1px solid rgba(255,255,255,0.08);">
+              <span class="text-slate-400">Moratorium Grace Period</span>
+              <span class="text-emerald font-bold">Up to 24 Months</span>
+            </div>
+            <div class="d-flex justify-between text-sm py-2" style="border-top:1px solid rgba(255,255,255,0.08);">
+              <span class="text-slate-400">Interest Subvention</span>
+              <span class="text-white font-bold">Academic Tier Discounts</span>
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <span class="badge badge-warning mb-2">Category 03</span>
+            <h2 class="section-title">Higher Education Loans</h2>
+            <p class="mb-3">
+              Investing in human capital should never be constrained by upfront liquidity. Our education facilities cover accredited university tuition, textbook materials, and campus accommodations.
+            </p>
+            <p class="text-muted mb-4">
+              Featuring built-in moratorium options that allow students to defer principal repayments until graduation and employment onboarding.
+            </p>
+            <a href="404.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 6: Short-Term Financing Demonstration
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="shortTermFinancing">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Agile Liquidity</div>
+          <h2 class="section-title">Short-Term Working Capital Demonstration</h2>
+          <p class="section-subtitle">
+            Micro-tenure bridge loans from 3 to 12 months for urgent cash flow balancing without complex covenants.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-icon"><i class="fas fa-boxes-packing"></i></div>
+            <h4 class="text-white mb-2">Inventory Bridge</h4>
+            <p class="text-sm text-slate-400 mb-3">Finance bulk seasonal inventory ahead of holiday cycles with expedited disbursement.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Check Eligibility &rarr;</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-icon"><i class="fas fa-file-invoice"></i></div>
+            <h4 class="text-white mb-2">Invoice Factoring Line</h4>
+            <p class="text-sm text-slate-400 mb-3">Unlock up to 85% of verified outstanding commercial invoices while clients settle terms.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Check Eligibility &rarr;</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-icon"><i class="fas fa-wrench"></i></div>
+            <h4 class="text-white mb-2">Emergency Repair Credit</h4>
+            <p class="text-sm text-slate-400 mb-3">Rapid replacement capital for essential equipment breakdowns with 24-hour decision flows.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Check Eligibility &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 7: Loan Eligibility Information
+         ========================================================================= -->
+    <section class="section" id="loanEligibility">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Prerequisites</div>
+          <h2 class="section-title">Transparent Eligibility Criteria</h2>
+          <p class="section-subtitle">
+            We believe eligibility requirements should be open, clear, and easy to understand before you ever apply.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card card-glass" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-id-card text-emerald mb-3" style="font-size:2rem;"></i>
+            <h4 class="text-white mb-1">Age & Status</h4>
+            <p class="text-xs text-slate-400">18+ years old with verifiable government identification or corporate registration.</p>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-briefcase text-emerald mb-3" style="font-size:2rem;"></i>
+            <h4 class="text-white mb-1">Employment Stability</h4>
+            <p class="text-xs text-slate-400">Minimum 6 months with current employer or 12 months continuous business operating history.</p>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-money-bill-wave text-emerald mb-3" style="font-size:2rem;"></i>
+            <h4 class="text-white mb-1">Income Threshold</h4>
+            <p class="text-xs text-slate-400">Net monthly verifiable inflow of at least $1,800 for personal credit ($3,500 for commercial).</p>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-scale-unbalanced-flip text-emerald mb-3" style="font-size:2rem;"></i>
+            <h4 class="text-white mb-1">Debt Ceiling</h4>
+            <p class="text-xs text-slate-400">Existing monthly debt servicing obligations should not exceed 45% of gross verifiable income.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 8: Credit Assessment Process
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="creditAssessmentProcess">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <div class="section-badge">Underwriting Protocol</div>
+            <h2 class="section-title">How Credit Scoring is Calculated</h2>
+            <p class="mb-3">
+              Rather than relying exclusively on historical credit score snapshots, Credora analyzes multi-factor financial capability models to build an objective risk profile.
+            </p>
+            <div class="card card-glass p-3 mb-3">
+              <h5 class="text-white mb-1">Cash Flow Stability (35%)</h5>
+              <p class="text-xs text-slate-400">Frequency, predictability, and dispersion of recurring income streams over the prior 12 months.</p>
+            </div>
+            <div class="card card-glass p-3 mb-3">
+              <h5 class="text-white mb-1">Debt-to-Income Capacity (30%)</h5>
+              <p class="text-xs text-slate-400">Available surplus after accounting for rent, utilities, and existing debt servicing.</p>
+            </div>
+            <div class="card card-glass p-3">
+              <h5 class="text-white mb-1">Historical Adherence (35%)</h5>
+              <p class="text-xs text-slate-400">Demonstrated punctuality with utility, vendor, and existing loan schedules.</p>
+            </div>
+          </div>
+
+          <div class="card card-glass tilt-card" data-aos="fade-left">
+            <div class="tilt-inner text-center p-4">
+              <div class="pulse-dot mx-auto mb-3"></div>
+              <span class="text-xs text-slate-400 d-block">SAMPLE DEMO RISK SCORECARD</span>
+              <h2 class="text-gradient-emerald my-2" style="font-size:3.5rem;">782</h2>
+              <span class="badge badge-success mb-4">Tier A — Preferred Rate Class</span>
+              <p class="text-xs text-slate-400">
+                *Demo score generated via simulated financial underwriting parameters. Approval is not guaranteed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 9: EMI Calculation Methodologies
+         ========================================================================= -->
+    <section class="section" id="emiCalculation">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Mathematical Foundation</div>
+          <h2 class="section-title">Reducing Balance vs. Flat Rate</h2>
+          <p class="section-subtitle">
+            Understand the financial mathematics that protect borrowers from paying interest on already-repaid capital.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <span class="badge badge-success mb-2">Credora Standard</span>
+            <h3 class="text-white mb-2">Reducing Balance Method</h3>
+            <p class="text-sm text-slate-300 mb-3">
+              Interest is recalculated every month solely on the diminishing principal. As you repay, your monthly interest charge falls continuously.
+            </p>
+            <div class="p-3" style="background:rgba(16,185,129,0.08); border-radius:var(--radius-md);">
+              <code class="text-xs text-emerald font-bold">EMI = [P &times; r &times; (1+r)^n] / [(1+r)^n - 1]</code>
+            </div>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200" style="opacity:0.85;">
+            <span class="badge badge-danger mb-2">Predatory Industry Practice</span>
+            <h3 class="text-white mb-2">Flat Rate Trap</h3>
+            <p class="text-sm text-slate-300 mb-3">
+              Interest is charged on the initial borrowed principal for the entire loan tenure, forcing borrowers to pay interest on money they have already repaid.
+            </p>
+            <div class="p-3" style="background:rgba(239,68,68,0.08); border-radius:var(--radius-md);">
+              <span class="text-xs text-danger font-bold">Results in an effective APR up to 1.8x higher than advertised!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 10: Loan Application Process & Document Checklist
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="applicationProcess">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <div class="section-badge">Onboarding Guide</div>
+            <h2 class="section-title">What You Need to Apply</h2>
+            <p class="mb-3">
+              Our frictionless digital onboarding requires zero physical paperwork. Simply upload clear digital captures of verifiable documents.
+            </p>
+            <ul class="d-flex" style="flex-direction:column; gap:0.75rem;">
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> Government issued Photo ID (Passport or Driver's License)
+              </li>
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> Proof of address dated within the previous 90 days
+              </li>
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> 3 months of consecutive bank account statements
+              </li>
+              <li class="d-flex align-center gap-2 text-sm text-slate-300">
+                <i class="fas fa-check text-emerald"></i> Tax returns or registered business balance sheet (for commercial facilities)
+              </li>
+            </ul>
+            <div class="mt-4">
+              <a href="404.html" class="btn btn-primary">Open Application Wizard</a>
+            </div>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-left">
+            <h4 class="text-white mb-3">Document Verification Speed</h4>
+            <div class="mb-3">
+              <div class="d-flex justify-between text-xs text-slate-300 mb-1">
+                <span>Identity Optical Character Recognition (OCR)</span>
+                <span class="text-emerald">Instant (&lt; 30 sec)</span>
+              </div>
+              <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:3px;">
+                <div style="width:100%; height:100%; background:var(--color-primary); border-radius:3px;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-between text-xs text-slate-300 mb-1">
+                <span>Bank Statement Parsing</span>
+                <span class="text-emerald">90 Seconds</span>
+              </div>
+              <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:3px;">
+                <div style="width:90%; height:100%; background:var(--color-primary); border-radius:3px;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-between text-xs text-slate-300 mb-1">
+                <span>Underwriting Assessment</span>
+                <span class="text-info">2 Minutes</span>
+              </div>
+              <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:3px;">
+                <div style="width:75%; height:100%; background:var(--color-info); border-radius:3px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 11: Repayment Management
+         ========================================================================= -->
+    <section class="section" id="repaymentManagement">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Servicing Mechanics</div>
+          <h2 class="section-title">Multiple Payment Channels</h2>
+          <p class="section-subtitle">
+            Choose the repayment method that fits your banking habits with automated confirmation receipts.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-icon"><i class="fas fa-rotate"></i></div>
+            <h4 class="text-white mb-2">Automated ACH Auto-Debit</h4>
+            <p class="text-sm text-slate-400">Set it and forget it. Funds are debited on your chosen day each month with a 0.25% demo APR rate reduction.</p>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-icon"><i class="fas fa-credit-card"></i></div>
+            <h4 class="text-white mb-2">Debit Card Portal</h4>
+            <p class="text-sm text-slate-400">Make manual on-demand payments 24/7 through your customer workspace using any registered debit card.</p>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-icon"><i class="fas fa-building-columns"></i></div>
+            <h4 class="text-white mb-2">Wire & Bank Transfer</h4>
+            <p class="text-sm text-slate-400">Direct electronic funds transfer with unique virtual account numbers for corporate borrowers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 12: Payment Tracking & Reconciliation
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="paymentTracking">
+      <div class="container">
+        <div class="split-section">
+          <div class="card card-glass" data-aos="fade-right">
+            <h4 class="text-white mb-3">Live Reconciliation Feed</h4>
+            <div class="p-3 mb-2" style="background:rgba(11,19,43,0.7); border-radius:var(--radius-md);">
+              <div class="d-flex justify-between text-xs mb-1">
+                <span class="text-white font-bold">ACH Ref #TRX-94810</span>
+                <span class="badge badge-success">Cleared</span>
+              </div>
+              <span class="text-xs text-slate-400">Principal: $512.20 | Interest: $172.30</span>
+            </div>
+            <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:var(--radius-md);">
+              <div class="d-flex justify-between text-xs mb-1">
+                <span class="text-white font-bold">ACH Ref #TRX-94811</span>
+                <span class="badge badge-success">Cleared</span>
+              </div>
+              <span class="text-xs text-slate-400">Principal: $515.80 | Interest: $168.70</span>
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <div class="section-badge">Ledger Integrity</div>
+            <h2 class="section-title">Automated Payment Tracking</h2>
+            <p class="mb-3">
+              Every payment is matched in real-time against your amortization schedule. Never wait days for your balance to update or dispute missing payments.
+            </p>
+            <p class="text-muted mb-4">
+              Instant electronic receipts and downloadable tax certificates are available in your customer workspace immediately upon transaction clearance.
+            </p>
+            <a href="404.html" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 13: Customer Account Management
+         ========================================================================= -->
+    <section class="section" id="customerAccountManagement">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Self-Service</div>
+          <h2 class="section-title">Customer Account Management</h2>
+          <p class="section-subtitle">
+            Manage your personal profile, linked bank details, payment preferences, and statements with 24/7 self-service convenience.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-icon"><i class="fas fa-user-gear"></i></div>
+            <h4 class="text-white mb-2">Profile & KYC Maintenance</h4>
+            <p class="text-sm text-slate-400">Update verified contact details, residential addresses, and corporate registry information securely.</p>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+            <h4 class="text-white mb-2">Statement Vault</h4>
+            <p class="text-sm text-slate-400">Download official stamped annual interest certificates for tax preparation with a single click.</p>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-icon"><i class="fas fa-bell"></i></div>
+            <h4 class="text-white mb-2">Custom Notification Rules</h4>
+            <p class="text-sm text-slate-400">Configure email and SMS alerts 3 days, 1 day, or day-of upcoming EMI payment debits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 14: Loan Monitoring & Health Checks
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="loanMonitoring">
+      <div class="container">
+        <div class="split-section">
+          <div data-aos="fade-right">
+            <div class="section-badge">Credit Health</div>
+            <h2 class="section-title">Continuous Loan Monitoring</h2>
+            <p class="mb-3">
+              Maintain an active view of your financial health. As you make consistent on-time payments, Credora monitors your progress and automatically unlocks opportunities for rate repricing.
+            </p>
+            <div class="d-flex align-center gap-2 text-sm text-slate-300 mb-2">
+              <i class="fas fa-chart-line text-emerald"></i> Real-time payoff progress bar
+            </div>
+            <div class="d-flex align-center gap-2 text-sm text-slate-300 mb-4">
+              <i class="fas fa-tags text-emerald"></i> Milestone-based loyalty rate discounts
+            </div>
+            <a href="404.html" class="btn btn-primary">View Details</a>
+          </div>
+
+          <div class="card card-glass" data-aos="fade-left">
+            <img src="assets/office-building.webp" alt="Credora Financial Headquarters" style="border-radius:var(--radius-md); width:100%; height:260px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 15: Financial Planning Resources
+         ========================================================================= -->
+    <section class="section" id="planningResources">
+      <div class="container text-center">
+        <div class="section-badge">Borrower Literacy</div>
+        <h2 class="section-title">Financial Planning Tools & Calculators</h2>
+        <p class="section-subtitle mx-auto mb-4">
+          Plan ahead using our interactive suite of budgeting tools, debt-to-income benchmarks, and early payoff simulators.
+        </p>
+        <div class="grid-3 text-left">
+          <div class="card">
+            <h4 class="text-white mb-2"><i class="fas fa-calculator text-emerald mr-2"></i> EMI Calculator</h4>
+            <p class="text-sm text-slate-400 mb-3">Model standard reducing-balance monthly commitments with adjustable tenures.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Launch Tool &rarr;</a>
+          </div>
+          <div class="card">
+            <h4 class="text-white mb-2"><i class="fas fa-piggy-bank text-emerald mr-2"></i> Prepayment Simulator</h4>
+            <p class="text-sm text-slate-400 mb-3">Calculate interest saved by contributing an extra $50 or $100 toward principal monthly.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Explore Tool &rarr;</a>
+          </div>
+          <div class="card">
+            <h4 class="text-white mb-2"><i class="fas fa-chart-pie text-emerald mr-2"></i> DTI Benchmark</h4>
+            <p class="text-sm text-slate-400 mb-3">Check whether your debt service obligations sit comfortably below recommended guidelines.</p>
+            <a href="404.html" class="text-emerald text-sm font-semibold">Explore Tool &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 16: Responsible Lending Commitment
+         ========================================================================= -->
+    <section class="section section-dark-alt" id="servicesResponsibleLending">
+      <div class="container">
+        <div class="card card-glass p-4" style="border-left:4px solid var(--color-primary);" data-aos="fade-up">
+          <h3 class="text-white mb-2"><i class="fas fa-shield-heart text-emerald mr-2"></i> Consumer Protection Standards</h3>
+          <p class="text-sm text-slate-300 mb-3">
+            At Credora Finance, we strictly adhere to principles of transparent credit delivery. We will never offer credit facilities that exceed calculated repayment capacity, and we provide transparent hardship relief protocols for unforeseen events.
+          </p>
+          <a href="404.html" class="text-emerald text-sm font-semibold">Read Responsible Lending Charter &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 17: Services FAQ
+         ========================================================================= -->
+    <section class="section" id="servicesFaq">
+      <div class="container container-narrow">
+        <div class="section-header text-center" data-aos="fade-up">
+          <div class="section-badge">Common Questions</div>
+          <h2 class="section-title">Products & Services FAQ</h2>
+        </div>
+
+        <div class="accordion" id="servicesAccordion" data-aos="fade-up">
+          <div class="accordion-item active">
+            <button class="accordion-header" type="button">
+              <span>Can I pay off my loan balance early?</span>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p class="text-sm text-slate-300">
+                Yes. Under our reducing-balance model, there are zero pre-payment penalties or settlement fees. Any additional payment made directly reduces your outstanding principal, immediately lowering all future interest charges.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span>Are interest rates fixed or variable?</span>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p class="text-sm text-slate-300">
+                All demonstration loan products featured on Credora Finance are based on fixed-rate reducing-balance amortization. Your rate remains constant throughout the agreed tenure.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span>How are loan disbursements simulated?</span>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p class="text-sm text-slate-300">
+                In this demonstration environment, approved applications simulate disbursement directly into the customer's demo account balance within the customer dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 18: Final Call to Action
+         ========================================================================= -->
+    <section class="section section-dark-alt text-center" id="servicesFinalCta">
+      <div class="container" data-aos="zoom-in">
+        <div class="section-badge mb-2">Get Started</div>
+        <h2 class="text-white mb-3">Begin Your Loan Application in Minutes</h2>
+        <p class="section-subtitle mx-auto mb-4">
+          Experience our transparent multi-step loan application wizard and explore instant simulated underwriting.
+        </p>
+        <div class="d-flex justify-center gap-3">
+          <a href="404.html" class="btn btn-primary btn-lg">Apply Now <i class="fas fa-arrow-right"></i></a>
+          <a href="404.html" class="btn btn-secondary btn-lg">Talk to Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <!-- Site Footer (Matching Reference) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & Social Circles -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            Compassionate veterinary medicine, preventive health examinations, and lifelong wellness for dogs and cats.
+          </p>
+          <div class="footer-social-circles">
+            <a href="404.html" class="social-circle-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="index.html"><span class="link-arrow">&gt;</span> Home</a></li>
+            <li><a href="services.html"><span class="link-arrow">&gt;</span> Services</a></li>
+            <li><a href="about.html"><span class="link-arrow">&gt;</span> About</a></li>
+            <li><a href="blog.html"><span class="link-arrow">&gt;</span> Blog</a></li>
+            <li><a href="contact.html"><span class="link-arrow">&gt;</span> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Portal Access -->
+        <div class="footer-col">
+          <h4 class="footer-title">Portal Access</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="login.html"><span class="link-arrow">&gt;</span> Staff Login</a></li>
+            <li><a href="signup.html"><span class="link-arrow">&gt;</span> Staff Sign Up</a></li>
+            <li><a href="admin-dashboard.html"><span class="link-arrow">&gt;</span> Admin Dashboard</a></li>
+            <li><a href="customer-dashboard.html"><span class="link-arrow">&gt;</span> Vet Workspace</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Client Portal (404)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Clinic Hours (Demo) -->
+        <div class="footer-col footer-col-hours">
+          <h4 class="footer-title">Clinic Hours (Demo)</h4>
+          <div class="footer-title-line"></div>
+          <div class="footer-hours-card">
+            <div class="hours-row">
+              <span class="hours-day">Mon – Fri:</span>
+              <strong class="hours-time">8:00 AM – 7:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday:</span>
+              <strong class="hours-time">9:00 AM – 4:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday:</span>
+              <strong class="hours-time">Emergency / Closed</strong>
+            </div>
+          </div>
+          <div class="footer-location-tag">
+            <i class="fas fa-location-dot"></i>
+            <span>Stackly, Tamil Nadu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Stackly. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Architecture</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>

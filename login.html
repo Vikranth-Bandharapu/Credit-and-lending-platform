@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Credora Finance</title>
+  <meta name="description" content="Sign in to Credora Finance's dual role-based financial portals: Admin Operations Center or Customer Workspace.">
+  <meta name="keywords" content="fintech login, loan dashboard sign in, borrower login, admin portal">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 50% 30%, rgba(16,185,129,0.1) 0%, #070D1E 100%) fixed;">
+
+  <!-- Header Minimal -->
+  <header style="padding: 1.5rem 0;">
+    <div class="container d-flex justify-between align-center">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+      </a>
+      <a href="index.html" class="btn btn-secondary btn-sm"><i class="fas fa-house"></i> Home</a>
+    </div>
+  </header>
+
+  <!-- Login Main Content Card -->
+  <main class="container" style="max-width: 500px; margin: 2rem auto;">
+    <div class="card card-glass p-4" style="border: 1px solid rgba(16,185,129,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+      
+      <div class="text-center mb-4">
+        <div class="pulse-dot mx-auto mb-2"></div>
+        <h2 class="text-white mb-1">Welcome Back</h2>
+        <p class="text-xs text-slate-400">Sign in to your authorized Credora financial workspace.</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        
+        <!-- Access Role Selection -->
+        <div class="form-group mb-3">
+          <label class="form-label" for="loginRole">Choose Access Role *</label>
+          <div class="input-with-icon">
+            <i class="fas fa-user-shield input-icon"></i>
+            <select id="loginRole" class="form-control" required style="background:#0B132B;">
+              <option value="Customer" selected>Customer (Borrower Workspace & Active Loans)</option>
+              <option value="Admin">Administrator (Credit & Lending Operations Center)</option>
+            </select>
+          </div>
+          <div class="form-error"></div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group mb-3">
+          <label class="form-label" for="loginEmail">Registered Email *</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email address" autocomplete="email" required>
+          </div>
+          <div class="form-error"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mb-4">
+          <div class="d-flex justify-between align-center mb-1">
+            <label class="form-label mb-0" for="loginPassword">Password *</label>
+            <a href="404.html" class="text-xs text-emerald">Forgot Password?</a>
+          </div>
+          <div class="input-with-icon">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" autocomplete="current-password" required>
+          </div>
+          <div class="form-error"></div>
+        </div>
+
+        <!-- Submit Button (Functional Exception to CTA Rule) -->
+        <button type="submit" class="btn btn-primary w-100 btn-lg mb-3" id="btnLoginSubmit">
+          <i class="fas fa-right-to-bracket"></i> Sign In to Workspace
+        </button>
+
+        <div class="text-center pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+          <span class="text-xs text-slate-400">Don't have a demonstration account?</span>
+          <a href="signup.html" class="text-xs text-emerald font-bold ml-1">Create Account &rarr;</a>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Footer Minimal -->
+  <footer style="padding: 1.5rem 0; border-top: var(--border-glass); text-align: center; font-size: 0.8rem; color: var(--color-slate-500);">
+    <div class="container">
+      &copy; 2026 Credora Finance Systems. All rights reserved. (Demonstration Prototype)
+    </div>
+  </footer>
+
+  <script src="assets/validation.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/auth.js"></script>
+</body>
+</html>

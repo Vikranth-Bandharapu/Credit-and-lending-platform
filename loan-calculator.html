@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive EMI Calculator — Credora Finance</title>
+  <meta name="description" content="Calculate standard reducing-balance monthly loan repayments (EMI), principal breakdown, and total interest using Credora's interactive financial calculator.">
+  <meta name="keywords" content="EMI calculator, loan calculator, reducing balance calculator, loan interest, principal amortization">
+  
+  <link rel="icon" type="image/png" href="assets/stackly-icon.png">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Libraries (AOS, Chart.js) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <div class="nav-actions-mobile">
+          <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-header-login"><i class="fas fa-arrow-right-to-bracket"></i> Login</a>
+        <a href="signup.html" class="btn-header-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- Hero / Title Header -->
+    <section class="section" style="padding: 4rem 0 2rem; background: radial-gradient(circle at 50% 10%, rgba(16,185,129,0.1) 0%, #070D1E 100%) fixed;">
+      <div class="container text-center" data-aos="fade-up">
+        <div class="section-badge mb-2">Financial Tools</div>
+        <h1 class="text-white mb-2">Interactive EMI & Amortization Calculator</h1>
+        <p class="section-subtitle mx-auto">
+          Explore monthly payments, total interest costs, and amortization schedules powered by the standard reducing-balance formula.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Calculator Interactive Workspace -->
+    <section class="section pt-0" id="calculatorEngine">
+      <div class="container">
+        <div class="split-section" style="align-items: flex-start; gap: 3rem;">
+          
+          <!-- Left Column: Inputs & Controls -->
+          <div class="card card-glass p-4" data-aos="fade-right">
+            <div class="d-flex justify-between align-center mb-4 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+              <h3 class="text-white">Loan Parameters</h3>
+              <!-- Calculator Reset Button (Required Exception) -->
+              <button type="button" class="btn btn-sm btn-secondary" id="calcResetBtn">
+                <i class="fas fa-rotate-left"></i> Reset Defaults
+              </button>
+            </div>
+
+            <!-- Input 1: Loan Amount -->
+            <div class="form-group mb-4">
+              <div class="d-flex justify-between align-center mb-2">
+                <label for="calcAmountInput" class="form-label mb-0">Loan Principal ($)</label>
+                <div class="input-with-icon" style="max-width: 160px;">
+                  <i class="fas fa-dollar-sign input-icon"></i>
+                  <input type="number" id="calcAmountInput" class="form-control" min="1000" max="500000" step="500" value="50000" style="padding:0.4rem 0.6rem 0.4rem 2rem; font-weight:700;">
+                </div>
+              </div>
+              <input type="range" id="calcAmountSlider" class="range-slider" min="1000" max="500000" step="1000" value="50000" aria-label="Loan Amount Slider">
+              <div class="d-flex justify-between text-xs text-slate-500 mt-1">
+                <span>$1,000</span>
+                <span>$250,000</span>
+                <span>$500,000</span>
+              </div>
+            </div>
+
+            <!-- Input 2: Interest Rate -->
+            <div class="form-group mb-4">
+              <div class="d-flex justify-between align-center mb-2">
+                <label for="calcRateInput" class="form-label mb-0">Annual Interest Rate (% p.a.)</label>
+                <div class="input-with-icon" style="max-width: 140px;">
+                  <i class="fas fa-percent input-icon"></i>
+                  <input type="number" id="calcRateInput" class="form-control" min="0" max="30" step="0.1" value="8.5" style="padding:0.4rem 0.6rem 0.4rem 2rem; font-weight:700;">
+                </div>
+              </div>
+              <input type="range" id="calcRateSlider" class="range-slider" min="0" max="30" step="0.1" value="8.5" aria-label="Interest Rate Slider">
+              <div class="d-flex justify-between text-xs text-slate-500 mt-1">
+                <span>0% (Zero-Interest)</span>
+                <span>15%</span>
+                <span>30%</span>
+              </div>
+            </div>
+
+            <!-- Input 3: Loan Tenure & Unit Toggle -->
+            <div class="form-group mb-4">
+              <div class="d-flex justify-between align-center mb-2">
+                <label for="calcTenureInput" class="form-label mb-0">Repayment Tenure</label>
+                <div class="d-flex align-center gap-2">
+                  <div class="pill-tab-group" style="padding:0.2rem;">
+                    <label style="cursor:pointer; font-size:0.75rem; padding:0.25rem 0.65rem; color:#FFFFFF;">
+                      <input type="radio" name="tenureUnit" id="tenureUnitYears" checked style="margin-right:0.25rem;"> Years
+                    </label>
+                    <label style="cursor:pointer; font-size:0.75rem; padding:0.25rem 0.65rem; color:#FFFFFF;">
+                      <input type="radio" name="tenureUnit" id="tenureUnitMonths" style="margin-right:0.25rem;"> Months
+                    </label>
+                  </div>
+                  <input type="number" id="calcTenureInput" class="form-control" min="1" max="30" step="1" value="5" style="max-width: 75px; padding:0.4rem 0.6rem; font-weight:700; text-align:center;">
+                </div>
+              </div>
+              <input type="range" id="calcTenureSlider" class="range-slider" min="1" max="30" step="1" value="5" aria-label="Tenure Slider">
+              <div class="d-flex justify-between text-xs text-slate-500 mt-1">
+                <span>Min</span>
+                <span>Mid</span>
+                <span>Max</span>
+              </div>
+            </div>
+
+            <!-- Mathematical Formula Callout -->
+            <div class="p-3" style="background:rgba(11,19,43,0.7); border-radius:var(--radius-md); border-left:3px solid var(--color-primary);">
+              <span class="text-xs text-emerald font-bold d-block mb-1">STANDARD REDUCING-BALANCE FORMULA</span>
+              <p class="text-xs text-slate-400 mb-0">
+                EMI = [P &times; r &times; (1+r)<sup>n</sup>] / [(1+r)<sup>n</sup> - 1]. In the event of 0% interest, EMI is computed as P / n.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Outputs, Chart & Visuals -->
+          <div data-aos="fade-left" style="width:100%;">
+            <!-- Primary EMI Banner -->
+            <div class="card card-glass p-4 mb-4 text-center" style="background: linear-gradient(145deg, #0F1A36 0%, #081126 100%); border:1px solid rgba(16,185,129,0.35);">
+              <span class="text-xs text-slate-400 text-uppercase letter-spacing-1 font-bold d-block mb-1">PROJECTED MONTHLY INSTALLMENT (EMI)</span>
+              <div class="text-gradient-emerald font-bold my-2" id="calcMonthlyEmi" style="font-size: 3.25rem; line-height: 1.1;">
+                $1,025
+              </div>
+              <span class="badge badge-success mb-3">Reducing Balance Calculated</span>
+              <div class="grid-3 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                <div>
+                  <span class="text-xs text-slate-400 d-block">Principal Amount</span>
+                  <strong class="text-white text-lg" id="calcPrincipalDisplay">$50,000</strong>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 d-block">Total Interest</span>
+                  <strong class="text-info text-lg" id="calcTotalInterestDisplay">$11,548</strong>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 d-block">Total Repayment</span>
+                  <strong class="text-white text-lg" id="calcTotalRepaymentDisplay">$61,548</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chart.js Breakdown Visualization -->
+            <div class="card card-glass p-4 mb-4">
+              <h4 class="text-white mb-3 text-center">Principal vs. Interest Ratio</h4>
+              <div style="position: relative; height: 220px; width: 100%;">
+                <canvas id="emiBreakdownChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Action Prompt -->
+            <div class="d-flex justify-between align-center p-3" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.2); border-radius:var(--radius-md);">
+              <div>
+                <strong class="text-white text-sm d-block">Satisfied with this estimate?</strong>
+                <span class="text-xs text-slate-400">Proceed to our multi-step demo loan application.</span>
+              </div>
+              <a href="apply-loan.html" class="btn btn-primary btn-sm">
+                Apply Demo <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortization Schedule Preview Table -->
+        <div class="card card-glass p-4 mt-5" data-aos="fade-up">
+          <div class="d-flex justify-between align-center mb-3">
+            <div>
+              <h3 class="text-white">Sample Amortization Schedule Preview</h3>
+              <p class="text-xs text-slate-400">Shows how the principal portion increases while the interest portion falls over time.</p>
+            </div>
+            <span class="badge badge-info">Reducing Balance Model</span>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Payment Month</th>
+                  <th>Total EMI</th>
+                  <th>Principal Paid</th>
+                  <th>Interest Paid</th>
+                  <th>Remaining Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortizationTableBody">
+                <!-- Dynamically populated by assets/calculator.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Mandatory Disclaimer Notice -->
+        <div class="p-4 mt-4" style="background:rgba(15,26,54,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius-md);">
+          <p class="text-xs text-slate-400 mb-0">
+            <strong>CALCULATOR DISCLAIMER:</strong> All calculations provided by this interface are purely hypothetical and intended strictly for educational and demonstrative simulations. They do not constitute an offer of credit, a loan pre-approval, or a binding financial commitment. Actual interest rates and loan terms are determined through comprehensive underwriting based on applicant qualifications and applicable institutional guidelines.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+    <!-- Site Footer (Matching Reference) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & Social Circles -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+            <img src="assets/stackly-logo-white@2x.png" alt="Stackly" class="brand-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            Compassionate veterinary medicine, preventive health examinations, and lifelong wellness for dogs and cats.
+          </p>
+          <div class="footer-social-circles">
+            <a href="404.html" class="social-circle-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" class="social-circle-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="index.html"><span class="link-arrow">&gt;</span> Home</a></li>
+            <li><a href="services.html"><span class="link-arrow">&gt;</span> Services</a></li>
+            <li><a href="about.html"><span class="link-arrow">&gt;</span> About</a></li>
+            <li><a href="blog.html"><span class="link-arrow">&gt;</span> Blog</a></li>
+            <li><a href="contact.html"><span class="link-arrow">&gt;</span> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Portal Access -->
+        <div class="footer-col">
+          <h4 class="footer-title">Portal Access</h4>
+          <div class="footer-title-line"></div>
+          <ul class="footer-arrow-links">
+            <li><a href="login.html"><span class="link-arrow">&gt;</span> Staff Login</a></li>
+            <li><a href="signup.html"><span class="link-arrow">&gt;</span> Staff Sign Up</a></li>
+            <li><a href="admin-dashboard.html"><span class="link-arrow">&gt;</span> Admin Dashboard</a></li>
+            <li><a href="customer-dashboard.html"><span class="link-arrow">&gt;</span> Vet Workspace</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Client Portal (404)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Clinic Hours (Demo) -->
+        <div class="footer-col footer-col-hours">
+          <h4 class="footer-title">Clinic Hours (Demo)</h4>
+          <div class="footer-title-line"></div>
+          <div class="footer-hours-card">
+            <div class="hours-row">
+              <span class="hours-day">Mon – Fri:</span>
+              <strong class="hours-time">8:00 AM – 7:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday:</span>
+              <strong class="hours-time">9:00 AM – 4:00 PM</strong>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday:</span>
+              <strong class="hours-time">Emergency / Closed</strong>
+            </div>
+          </div>
+          <div class="footer-location-tag">
+            <i class="fas fa-location-dot"></i>
+            <span>Stackly, Tamil Nadu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Stackly. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Architecture</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/main.js"></script>
+  <script src="assets/calculator.js"></script>
+  <script src="assets/animations.js"></script>
+</body>
+</html>
