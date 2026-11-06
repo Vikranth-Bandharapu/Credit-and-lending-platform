@@ -10,6 +10,35 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
 });
 
+// Initialize Page Preloader immediately
+initPageLoader();
+
+/**
+ * High-Tech Fintech Page Preloader Controller
+ */
+function initPageLoader() {
+  function handleDismiss() {
+    const loader = document.getElementById('pageLoader');
+    if (!loader || loader.classList.contains('loaded')) return;
+    loader.classList.add('loaded');
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 520);
+  }
+
+  // Dismiss on full window load with graceful minimum display
+  if (document.readyState === 'complete') {
+    setTimeout(handleDismiss, 250);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(handleDismiss, 320);
+    });
+  }
+
+  // Failsafe timer (guarantees loader disappears within 1.2s under all conditions)
+  setTimeout(handleDismiss, 1200);
+}
+
 /**
  * Navigation Bar Scroll & Mobile Menu Handler
  */
