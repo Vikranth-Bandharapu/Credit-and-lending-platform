@@ -12,6 +12,7 @@
 
 /* Universal Responsive Base */
 html, body {
+  background-color: var(--color-bg-dark);
   overflow-x: hidden !important;
   width: 100% !important;
   max-width: 100% !important;
@@ -20,10 +21,19 @@ html, body {
   box-sizing: border-box;
 }
 
-main, section, .section, .hero-wrapper, .page-header-banner, .cta-section, .split-section {
+main {
+  overflow-x: clip !important;
+  box-sizing: border-box;
+}
+
+section, .section, .hero-wrapper, .page-header-banner, .cta-section, .split-section {
   overflow-x: clip !important;
   max-width: 100% !important;
   box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+  .p-md-4 { padding: 2rem; }
 }
 
 /* Background Scroll Lock when Sidebar or Navigation Drawer is Open */
@@ -498,6 +508,10 @@ img, svg, video, canvas, iframe {
   }
 
   .topbar-search {
+    display: none !important;
+  }
+
+  .hide-on-mobile {
     display: none !important;
   }
 

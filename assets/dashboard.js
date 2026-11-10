@@ -7,14 +7,59 @@ document.addEventListener('DOMContentLoaded', () => {
   initUserSession();
   initDashboardSidebar();
   initDashboardTabs();
+  initKpiCounters();
   initApplicationFilters();
   initBorrowerSearch();
   initEmailCenter();
   initAdminCharts();
+  initCustomerCharts();
   initCustomerCalendar();
   initLogout();
   initDemoModals();
 });
+
+/**
+ * Animated Number Count-up for Dashboard KPI Cards
+ */
+function initKpiCounters() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const kpiValues = document.querySelectorAll('.kpi-value');
+  kpiValues.forEach(el => {
+    const raw = el.textContent.trim();
+    const match = raw.match(/^([^0-9.-]*)([0-9][0-9,]*(?:\.[0-9]+)?)(.*)$/);
+    if (!match) return;
+    const prefix = match[1];
+    const numStr = match[2];
+    const suffix = match[3];
+    const target = parseFloat(numStr.replace(/,/g, ''));
+    if (isNaN(target) || target === 0) return;
+
+    const decimals = numStr.includes('.') ? numStr.split('.')[1].length : 0;
+    const duration = 750;
+    const startDelay = 350;
+    const startTime = performance.now() + startDelay;
+
+    function step(now) {
+      if (now < startTime) {
+        requestAnimationFrame(step);
+        return;
+      }
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      el.textContent = prefix + current.toLocaleString('en-US', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      }) + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = raw;
+      }
+    }
+    requestAnimationFrame(step);
+  });
+}
 
 /**
  * Dynamic User Session & Logged-in Email Synchronization
@@ -419,6 +464,80 @@ function initAdminCharts() {
         maintainAspectRatio: false,
         plugins: {
           legend: { position: 'bottom', labels: { color: '#CBD5E1', padding: 14 } }
+        },
+        cutout: '65%'
+      }
+    });
+  }
+}
+
+/**
+ * Customer Financial Workspace Charts via Chart.js
+ */
+function initCustomerCharts() {
+  const trajCanvas = document.getElementById('custPaymentTrajectoryChart');
+  const mixCanvas = document.getElementById('custRepaymentMixChart');
+
+  if (typeof Chart === 'undefined') return;
+
+  if (trajCanvas) {
+    new Chart(trajCanvas.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+          {
+            label: 'Principal Portion ($)',
+            data: [494, 498, 502, 505, 508, 512, 516, 520],
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16, 185, 129, 0.14)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 3
+          },
+          {
+            label: 'Interest Portion ($)',
+            data: [190, 186, 182, 179, 176, 172, 168, 164],
+            borderColor: '#38BDF8',
+            backgroundColor: 'rgba(56, 189, 248, 0.06)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2,
+            borderDash: [5, 5]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: '#E2E8F0', font: { family: 'Plus Jakarta Sans', size: 12 } } }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#CBD5E1' } },
+          y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#CBD5E1' } }
+        }
+      }
+    });
+  }
+
+  if (mixCanvas) {
+    new Chart(mixCanvas.getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Principal Repaid ($17,550)', 'Remaining Balance ($12,450)', 'Early Payoff Savings ($420)'],
+        datasets: [{
+          data: [17550, 12450, 420],
+          backgroundColor: ['#10B981', '#38BDF8', '#F59E0B'],
+          borderColor: '#0F1A36',
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#E2E8F0', padding: 14, font: { family: 'Plus Jakarta Sans', size: 12 } } }
         },
         cutout: '65%'
       }
