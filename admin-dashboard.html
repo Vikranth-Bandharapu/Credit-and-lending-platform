@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="assets/dashboard.css">
   <link rel="stylesheet" href="assets/responsive.css">
 </head>
-<body>
+<body class="theme-admin-dash">
 
   <!-- High-Tech Fintech Page Preloader -->
   <div id="pageLoader" class="page-loader" aria-hidden="true" aria-label="Loading Credora Platform">
@@ -145,6 +145,7 @@
           <!-- SECTION 1: Welcome Header -->
           <div class="welcome-header-card mb-4 pb-2">
             <div class="welcome-header-info">
+              <div class="welcome-badge-chip"><i class="fas fa-satellite-dish"></i> Executive Operations Console • Live</div>
               <h2 class="welcome-title text-white mb-1">Portfolio Operations Command</h2>
               <p class="welcome-subtitle text-xs text-slate-400 mb-0">Signed in as <strong class="welcome-user-email text-emerald">admin@credora.com</strong> &bull; Real-time underwriting telemetry active.</p>
             </div>
@@ -171,32 +172,32 @@
             </div>
 
             <!-- SECTION 4: Pending Applications -->
-            <div class="kpi-card" style="border-color: rgba(245,158,11,0.3);">
+            <div class="kpi-card">
               <div class="kpi-header">
                 <span class="kpi-title">Pending Underwriting</span>
-                <div class="kpi-icon-wrap" style="color:var(--color-warning); background:var(--color-warning-bg);"><i class="fas fa-hourglass-half"></i></div>
+                <div class="kpi-icon-wrap"><i class="fas fa-hourglass-half"></i></div>
               </div>
-              <div class="kpi-value text-warning">47</div>
+              <div class="kpi-value">47</div>
               <div class="kpi-meta"><i class="fas fa-clock"></i> Avg turnaround: 4.2 min</div>
             </div>
 
             <!-- SECTION 5: Approved Applications -->
-            <div class="kpi-card" style="border-color: rgba(16,185,129,0.3);">
+            <div class="kpi-card">
               <div class="kpi-header">
                 <span class="kpi-title">Approved Facilities</span>
                 <div class="kpi-icon-wrap"><i class="fas fa-stamp"></i></div>
               </div>
-              <div class="kpi-value text-emerald">3,120</div>
+              <div class="kpi-value">3,120</div>
               <div class="kpi-meta positive"><i class="fas fa-check-double"></i> 81.2% approval rate</div>
             </div>
 
             <!-- SECTION 6: Rejected Applications -->
-            <div class="kpi-card" style="border-color: rgba(239,68,68,0.3);">
+            <div class="kpi-card">
               <div class="kpi-header">
                 <span class="kpi-title">Declined Applications</span>
-                <div class="kpi-icon-wrap" style="color:var(--color-danger); background:var(--color-danger-bg);"><i class="fas fa-ban"></i></div>
+                <div class="kpi-icon-wrap"><i class="fas fa-ban"></i></div>
               </div>
-              <div class="kpi-value text-danger">675</div>
+              <div class="kpi-value" style="color:#FB7185;">675</div>
               <div class="kpi-meta negative"><i class="fas fa-shield"></i> Exceeded DTI ceiling</div>
             </div>
           </div>
@@ -444,8 +445,8 @@
                 <span>Week 44 Target: $450,000</span>
                 <span class="text-emerald font-bold">Collected: $438,200 (97.3%)</span>
               </div>
-              <div style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px; margin-bottom:1rem;">
-                <div style="width:97.3%; height:100%; background:var(--color-primary); border-radius:4px;"></div>
+              <div style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px; margin-bottom:1rem; overflow:hidden;">
+                <div class="animate-progress-bar" style="width:97.3%; height:100%; background:linear-gradient(90deg, #10B981, #06B6D4); border-radius:4px;"></div>
               </div>
               <div class="d-flex justify-between text-xs text-slate-400">
                 <span>ACH Auto-Debit: 88%</span>

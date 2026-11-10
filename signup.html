@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/responsive.css">
 </head>
-<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 50% 25%, rgba(16,185,129,0.12) 0%, #070D1E 100%) fixed;">
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background-color: #070D1E; background-image: radial-gradient(circle at 50% 25%, rgba(16,185,129,0.12) 0%, #070D1E 100%); background-attachment: fixed;">
 
   <!-- High-Tech Fintech Page Preloader -->
   <div id="pageLoader" class="page-loader" aria-hidden="true" aria-label="Loading Credora Platform">
@@ -52,13 +52,13 @@
   </header>
 
   <!-- Signup Main Card -->
-  <main class="container" style="max-width: 580px; margin: 1.5rem auto 3rem;">
-    <div class="card card-glass p-4" style="border: 1px solid rgba(16,185,129,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+  <main class="container" style="max-width: 530px; margin: 1.5rem auto 3rem;">
+    <div class="card card-glass auth-card p-4">
       
       <div class="text-center mb-4">
-        <div class="pulse-dot mx-auto mb-2"></div>
-        <h2 class="text-white mb-1">Create Demo Account</h2>
-        <p class="text-xs text-slate-400">Register your account to access our financial platform.</p>
+        <div class="auth-pill-tag"><span class="pulse-dot" style="width:7px; height:7px;"></span> Instant Onboarding</div>
+        <h2 class="text-white mb-1" style="font-size: 1.9rem;">Create Demo Account</h2>
+        <p class="text-sm text-slate-300">Register your account to access our financial platform.</p>
       </div>
 
       <form id="signupForm" novalidate>
@@ -128,10 +128,12 @@
           <div class="form-error"></div>
         </div>
 
-        <!-- Submit Button (Functional Exception to CTA Rule) -->
-        <button type="submit" class="btn btn-primary w-100 btn-lg mb-3" id="btnSignupSubmit">
-          <i class="fas fa-user-plus"></i> Sign Up
-        </button>
+        <!-- Compact Centered Submit Button (Functional Exception to CTA Rule) -->
+        <div class="text-center mb-3">
+          <button type="submit" class="btn btn-primary btn-auth-submit" id="btnSignupSubmit">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </button>
+        </div>
 
         <div class="text-center pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
           <span class="text-xs text-slate-400">Already have a demo profile?</span>

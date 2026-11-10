@@ -13,12 +13,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <!-- Core Styles -->
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/dashboard.css">
   <link rel="stylesheet" href="assets/responsive.css">
 </head>
-<body>
+<body class="theme-customer-dash">
 
   <!-- High-Tech Fintech Page Preloader -->
   <div id="pageLoader" class="page-loader" aria-hidden="true" aria-label="Loading Credora Platform">
@@ -136,6 +139,7 @@
           <!-- SECTION 1: Welcome Header -->
           <div class="welcome-header-card mb-4 pb-2">
             <div class="welcome-header-info">
+              <div class="welcome-badge-chip"><i class="fas fa-shield-halved text-emerald"></i> Personal Financial Command • Tier A</div>
               <h2 class="welcome-title text-white mb-1">Welcome, <span class="welcome-user-name">Alex Morgan</span></h2>
               <p class="welcome-subtitle text-xs text-slate-400 mb-0">Signed in as <strong class="welcome-user-email text-emerald">customer@credora.com</strong> &bull; Account in good standing.</p>
             </div>
@@ -160,33 +164,57 @@
               <div class="kpi-meta"><i class="fas fa-check"></i> Sanctioned Oct 2024</div>
             </div>
 
-            <div class="kpi-card" style="border-color:rgba(16,185,129,0.3);">
+            <div class="kpi-card">
               <div class="kpi-header">
                 <span class="kpi-title">Principal Outstanding</span>
                 <div class="kpi-icon-wrap"><i class="fas fa-scale-balanced"></i></div>
               </div>
-              <div class="kpi-value text-emerald">$12,450</div>
+              <div class="kpi-value">$12,450</div>
               <div class="kpi-meta positive"><i class="fas fa-arrow-down"></i> 58.5% paid off</div>
             </div>
 
-            <div class="kpi-card" style="border-color:rgba(59,130,246,0.3);">
+            <div class="kpi-card">
               <div class="kpi-header">
                 <span class="kpi-title">Next Monthly EMI</span>
-                <div class="kpi-icon-wrap" style="color:var(--color-info); background:var(--color-info-bg);"><i class="fas fa-calendar-day"></i></div>
+                <div class="kpi-icon-wrap"><i class="fas fa-calendar-day"></i></div>
               </div>
-              <div class="kpi-value text-info">$684.50</div>
+              <div class="kpi-value">$684.50</div>
               <div class="kpi-meta"><i class="fas fa-clock"></i> Due in 12 days (Dec 15)</div>
             </div>
 
-            <div class="kpi-card" style="border-color:rgba(16,185,129,0.3);">
+            <div class="kpi-card">
               <div class="kpi-header">
                 <span class="kpi-title">Credora Health Tier</span>
                 <div class="kpi-icon-wrap"><i class="fas fa-shield-heart"></i></div>
               </div>
-              <div class="kpi-value text-emerald">Tier A</div>
+              <div class="kpi-value" style="color:#FBBF24;">Tier A</div>
               <div class="kpi-meta positive"><i class="fas fa-award"></i> Eligible for -0.5% rate discount</div>
             </div>
           </div>
+
+          <!-- Interactive Charts Row for Customer Workspace -->
+          <div class="grid-2 mb-4">
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-chart-line text-emerald mr-2"></i> Monthly Principal vs Interest Trend ($)</h4>
+                <span class="badge badge-info">Reducing Balance</span>
+              </div>
+              <div style="height:230px;">
+                <canvas id="custPaymentTrajectoryChart"></canvas>
+              </div>
+            </div>
+
+            <div class="card card-glass p-3">
+              <div class="d-flex justify-between align-center mb-2">
+                <h4 class="text-white"><i class="fas fa-chart-pie text-emerald mr-2"></i> Facility Payoff Progress ($30,000)</h4>
+                <span class="badge badge-success">58.5% Cleared</span>
+              </div>
+              <div style="height:230px;">
+                <canvas id="custRepaymentMixChart"></canvas>
+              </div>
+            </div>
+          </div>
+
           <!-- SECTION 14 & 15: Notifications & Personalized Financial Insights -->
           <div class="grid-2 mb-4">
             <!-- SECTION 14: Notifications Panel -->
@@ -246,8 +274,8 @@
                   <span>Repaid: $17,550</span>
                   <span class="text-emerald font-bold">Remaining: $12,450 (41.5%)</span>
                 </div>
-                <div style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px;">
-                  <div style="width:58.5%; height:100%; background:var(--color-primary); border-radius:4px;"></div>
+                <div style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
+                  <div class="animate-progress-bar" style="width:58.5%; height:100%; background:linear-gradient(90deg, #10B981, #38BDF8); border-radius:4px;"></div>
                 </div>
               </div>
               <div class="d-flex justify-between text-xs text-slate-400">

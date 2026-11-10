@@ -576,8 +576,8 @@
       <div class="container container-narrow" data-aos="fade-up">
         <h3 class="text-white mb-2">Join the Lending Advisory Bulletin</h3>
         <p class="text-slate-400 text-sm mb-4">Stay informed on policy updates, rate changes, and borrower tips.</p>
-        <form class="d-flex justify-center gap-2" onsubmit="event.preventDefault(); showToast('Subscribed to advisory bulletin (Demo)!', 'success');">
-          <input type="email" class="form-control" placeholder="Work email address" required style="max-width:340px;">
+        <form class="d-flex justify-center gap-2" onsubmit="event.preventDefault(); window.location.href='404.html';">
+          <input type="email" class="form-control" placeholder="Work email address" style="max-width:340px;">
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
       </div>
@@ -700,43 +700,17 @@
       const subject = document.getElementById('contactSubject');
       const msg = document.getElementById('contactMessage');
 
+      const btnSubmit = document.getElementById('btnSubmitContact');
+      if (btnSubmit) {
+        btnSubmit.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = '404.html';
+        });
+      }
+
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        let valid = true;
-
-        [name, email, phone, category, subject, msg].forEach(el => window.ValidationUtils.clearError(el));
-
-        if (!name.value.trim() || name.value.trim().length < 3) {
-          window.ValidationUtils.showError(name, 'Please provide your full name');
-          valid = false;
-        }
-        if (!window.ValidationUtils.isValidEmail(email.value)) {
-          window.ValidationUtils.showError(email, 'Please enter a valid email');
-          valid = false;
-        }
-        if (!window.ValidationUtils.isValidPhone(phone.value)) {
-          window.ValidationUtils.showError(phone, 'Please enter a valid phone number');
-          valid = false;
-        }
-        if (!category.value) {
-          window.ValidationUtils.showError(category, 'Please select an inquiry category');
-          valid = false;
-        }
-        if (!subject.value.trim()) {
-          window.ValidationUtils.showError(subject, 'Please specify an inquiry subject');
-          valid = false;
-        }
-        if (!msg.value.trim() || msg.value.trim().length < 10) {
-          window.ValidationUtils.showError(msg, 'Please enter a message (at least 10 characters)');
-          valid = false;
-        }
-
-        if (valid) {
-          window.showToast('Thank you! Your demo inquiry has been received.', 'success');
-          form.reset();
-        } else {
-          window.showToast('Please correct the highlighted fields.', 'error');
-        }
+        window.location.href = '404.html';
       });
     });
   </script>
