@@ -959,6 +959,21 @@ p {
   background: rgba(11, 19, 43, 0.9);
 }
 
+.form-control.is-invalid {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px var(--color-danger-bg);
+}
+
+.form-control.is-invalid:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px var(--color-danger-bg);
+}
+
+.inline-redirect-form {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 .form-control::placeholder {
   color: var(--color-slate-500);
 }

@@ -167,10 +167,14 @@
    ========================================================================== */
 .dashboard-main {
   flex: 1;
+  min-width: 0;
+  width: calc(100% - 280px);
+  max-width: calc(100% - 280px);
   margin-left: 280px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   background-color: #060B18;
   background-image:
     radial-gradient(ellipse at 15% 6%, rgba(16, 185, 129, 0.11) 0%, transparent 45%),
@@ -429,7 +433,19 @@
    ========================================================================== */
 .dashboard-content {
   flex: 1;
+  min-width: 0;
+  max-width: 100%;
   padding: 2rem;
+  box-sizing: border-box;
+}
+
+.dashboard-section,
+.dashboard-content .card,
+.dashboard-content .card-glass,
+.dashboard-content .table-responsive {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard-content h2 {
@@ -461,16 +477,53 @@
   flex-shrink: 0;
 }
 
+.dashboard-content .data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .dashboard-content .data-table th {
-  font-size: 0.88rem;
+  padding: 0.85rem 0.65rem;
+  font-size: 0.78rem;
   color: #7DD3FC;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
   border-bottom: 1px solid rgba(56, 189, 248, 0.25);
 }
 
 .dashboard-content .data-table td {
-  font-size: 1rem;
+  padding: 0.85rem 0.65rem;
+  font-size: 0.9rem;
   color: #F1F5F9;
+  vertical-align: middle;
+}
+
+.dashboard-content .data-table th:first-child,
+.dashboard-content .data-table td:first-child {
+  padding-left: 0.75rem;
+  white-space: nowrap;
+}
+
+.dashboard-content .data-table th:last-child,
+.dashboard-content .data-table td:last-child {
+  padding-right: 0.75rem;
+  white-space: nowrap;
+}
+
+#sec-applications .data-table td:nth-child(4),
+#sec-applications .data-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+.dashboard-content .data-table .badge {
+  font-size: 0.72rem;
+  padding: 0.24rem 0.58rem;
+}
+
+.dashboard-content .data-table .btn-sm {
+  padding: 0.42rem 0.75rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .dashboard-content .data-table tbody tr {
@@ -980,6 +1033,43 @@
 }
 
 /* Responsive Dashboard Rules */
+@media (max-width: 1366px) {
+  .dashboard-content {
+    padding: 1.35rem;
+  }
+  .dashboard-content .card.p-4 {
+    padding: 1.1rem !important;
+  }
+  .dashboard-content .data-table th,
+  .dashboard-content .data-table td {
+    padding: 0.72rem 0.4rem;
+  }
+  .dashboard-content .data-table th {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+  .dashboard-content .data-table th:first-child,
+  .dashboard-content .data-table td:first-child {
+    padding-left: 0.5rem;
+  }
+  .dashboard-content .data-table th:last-child,
+  .dashboard-content .data-table td:last-child {
+    padding-right: 0.5rem;
+  }
+  .dashboard-content .data-table td {
+    font-size: 0.82rem;
+  }
+  .dashboard-content .data-table .badge {
+    font-size: 0.67rem;
+    padding: 0.22rem 0.46rem;
+    letter-spacing: 0.02em;
+  }
+  .dashboard-content .data-table .btn-sm {
+    padding: 0.36rem 0.6rem;
+    font-size: 0.76rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .dashboard-sidebar {
     transform: translateX(-100%);
@@ -1002,6 +1092,8 @@
 
   .dashboard-main {
     margin-left: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .sidebar-toggle-btn {
