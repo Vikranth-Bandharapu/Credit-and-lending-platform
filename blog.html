@@ -529,8 +529,11 @@
       <div class="container container-narrow">
         <div class="card card-glass p-4 text-center">
           <h3 class="text-white mb-3">Search the Financial Knowledge Base</h3>
-          <form class="d-flex gap-2" onsubmit="event.preventDefault(); window.location.href='404.html';">
-            <input type="text" class="form-control" placeholder="Search keywords: EMI formula, debt consolidation, DTI ratio...">
+          <form id="blogSearchForm" class="d-flex gap-2 inline-redirect-form" data-validate-redirect="404.html" novalidate>
+            <div class="form-group mb-0" style="flex:1; min-width:200px;">
+              <input type="text" id="blogSearchInput" class="form-control" placeholder="Search keywords: EMI formula, debt consolidation, DTI ratio..." minlength="2" required data-error-msg="Please enter a search keyword (at least 2 characters)." aria-label="Search knowledge base">
+              <div class="form-error text-left"></div>
+            </div>
             <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
           </form>
         </div>
@@ -547,8 +550,11 @@
         <p class="text-slate-400 text-sm mb-4">
           Join 28,000+ borrowers and finance professionals receiving our monthly curated research bulletin. Zero spam, unsubscribe anytime.
         </p>
-        <form class="d-flex justify-center gap-2" onsubmit="event.preventDefault(); window.location.href='404.html';">
-          <input type="email" class="form-control" placeholder="Enter your work email" style="max-width:360px;">
+        <form id="blogNewsletterForm" class="d-flex justify-center gap-2 inline-redirect-form" data-validate-redirect="404.html" novalidate>
+          <div class="form-group mb-0" style="flex:1; max-width:360px; min-width:220px;">
+            <input type="email" id="blogNewsletterEmail" class="form-control" placeholder="Enter your work email" required data-error-msg="Please enter a valid work email address." aria-label="Enter your work email">
+            <div class="form-error text-left"></div>
+          </div>
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
       </div>
@@ -648,10 +654,10 @@
           <h4 class="footer-title">Portal Access</h4>
           <div class="footer-title-line"></div>
           <ul class="footer-arrow-links">
-            <li><a href="login.html"><span class="link-arrow">&gt;</span> Customer Login</a></li>
-            <li><a href="signup.html"><span class="link-arrow">&gt;</span> Register Account</a></li>
-            <li><a href="admin-dashboard.html"><span class="link-arrow">&gt;</span> Admin Dashboard</a></li>
-            <li><a href="customer-dashboard.html"><span class="link-arrow">&gt;</span> Customer Dashboard</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Customer Login</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Register Account</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Admin Dashboard</a></li>
+            <li><a href="404.html"><span class="link-arrow">&gt;</span> Customer Dashboard</a></li>
             <li><a href="404.html"><span class="link-arrow">&gt;</span> Partner Portal (404)</a></li>
           </ul>
         </div>
@@ -693,6 +699,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/validation.js"></script>
   <script src="assets/main.js"></script>
   <script src="assets/animations.js"></script>
 </body>
